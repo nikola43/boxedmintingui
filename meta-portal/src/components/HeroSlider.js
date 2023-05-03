@@ -125,10 +125,10 @@ const HeroSlider = () => {
       <div className="container">
         <h3
           className="fn__maintitle big"
-          data-text="Meta Legends"
+          data-text="Boxed"
           data-align="center"
         >
-          Meta Legends
+          Boxed
         </h3>
         {/* Slider */}
         <div className="fn_cs_slider" data-responsive="on">
@@ -139,7 +139,7 @@ const HeroSlider = () => {
                 <div className="item">
                   <img src="/img/1x1.jpg" alt="" />
                   <div className="item_in">
-                    <div className="img" data-bg-img="/img/slider/1.jpg" />
+                    <div className="img" data-bg-img="https://i.ibb.co/1RZywBD/10-Asset-Copa.png" />
                   </div>
                 </div>
               </li>
@@ -147,21 +147,15 @@ const HeroSlider = () => {
                 <div className="item">
                   <img src="/img/1x1.jpg" alt="" />
                   <div className="item_in">
-                    <div className="img" data-bg-img="/img/slider/2.jpg" />
+                    <div className="img" data-bg-img="https://i.ibb.co/C20tSsb/15-Asset-Phantom.png" />
                   </div>
                 </div>
               </li>
-              <li className="next" data-index={3}>
-                <div className="item has_video">
+              <li className="active" data-index={3}>
+                <div className="item">
                   <img src="/img/1x1.jpg" alt="" />
-                  <a
-                    className="popup-youtube metaportal_fn_videobutton"
-                    href="https://www.youtube.com/embed/7e90gBu4pas"
-                  >
-                    <img src="/svg/play.svg" alt="" className="fn__svg" />
-                  </a>
                   <div className="item_in">
-                    <div className="img" data-bg-img="/img/slider/3.jpg" />
+                    <div className="img" data-bg-img="https://i.ibb.co/0sx3hqn/10-Asset-King.png" />
                   </div>
                 </div>
               </li>
@@ -169,7 +163,7 @@ const HeroSlider = () => {
                 <div className="item">
                   <img src="/img/1x1.jpg" alt="" />
                   <div className="item_in">
-                    <div className="img" data-bg-img="/img/slider/4.jpg" />
+                    <div className="img" data-bg-img="https://i.ibb.co/nkMDPMX/10-Asset-Mercurial2.png" />
                   </div>
                 </div>
               </li>
@@ -177,7 +171,7 @@ const HeroSlider = () => {
                 <div className="item">
                   <img src="/img/1x1.jpg" alt="" />
                   <div className="item_in">
-                    <div className="img" data-bg-img="/img/slider/5.jpg" />
+                    <div className="img" data-bg-img="https://i.ibb.co/6H5wJK5/10-Asset-Mercurial5.png" />
                   </div>
                 </div>
               </li>
@@ -185,7 +179,7 @@ const HeroSlider = () => {
                 <div className="item">
                   <img src="/img/1x1.jpg" alt="" />
                   <div className="item_in">
-                    <div className="img" data-bg-img="/img/slider/6.jpg" />
+                    <div className="img" data-bg-img="https://i.ibb.co/prDKd9T/10-Asset-Phantom2.png" />
                   </div>
                 </div>
               </li>
@@ -193,7 +187,7 @@ const HeroSlider = () => {
                 <div className="item">
                   <img src="/img/1x1.jpg" alt="" />
                   <div className="item_in">
-                    <div className="img" data-bg-img="/img/slider/7.jpg" />
+                    <div className="img" data-bg-img="https://i.ibb.co/5rBsSdp/10-Asset-Mizuno.png" />
                   </div>
                 </div>
               </li>
@@ -220,10 +214,7 @@ const HeroSlider = () => {
         {/* Description */}
         <div className="fn_cs_desc">
           <p>
-            Meta Legends represent a collection of 17,000 legends categorized by
-            level of rarity and generated with hundreds of elements. The Legends
-            are stored as ERC-721 tokens on the Ethereum blockchain and hosted
-            on IPFS.
+            Welcome to Boxed NFTs, the next generation of real-world asset investing. We believe that investing in tangible assets should be easier and more accessible to everyone, and that&apos;s why we&apos;ve created Boxed NFTs.
           </p>
           <a
             href="https://opensea.io/"

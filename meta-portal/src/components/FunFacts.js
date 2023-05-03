@@ -1,4 +1,4 @@
-import Counter from "./Counter";
+// import Counter from "./Counter";
 
 const FunFacts = () => {
   return (
@@ -10,7 +10,7 @@ const FunFacts = () => {
               <div className="item">
                 <h3 className="fn__gradient_title">
                   <span className="prefix" />
-                  <Counter end={9999} />
+                  <span>1000</span>
                   <span className="suffix" />
                 </h3>
                 <p>Total Items</p>
@@ -21,7 +21,7 @@ const FunFacts = () => {
               <div className="item">
                 <h3 className="fn__gradient_title">
                   <span className="prefix" />
-                  <Counter end={3.9} decimals={2} />
+                  <span>1000</span>
                   <span className="suffix">k+</span>
                 </h3>
                 <p>Total Owners</p>
@@ -32,7 +32,7 @@ const FunFacts = () => {
               <div className="item">
                 <h3 className="fn__gradient_title">
                   <span className="prefix" />
-                  <Counter end={2.4} decimals={2} />
+                  <span>1000</span>
                   <span className="suffix" />
                 </h3>
                 <p>Floor Price (ETH)</p>
@@ -43,7 +43,7 @@ const FunFacts = () => {
               <div className="item">
                 <h3 className="fn__gradient_title">
                   <span className="prefix" />
-                  <Counter end={144} />
+                  <span>1000</span>
                   <span className="suffix">k+</span>
                 </h3>
                 <p>Volume Traded (ETH)</p>

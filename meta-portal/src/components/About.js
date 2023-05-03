@@ -6,13 +6,13 @@ const About = () => {
       <div className="fn_cs_about">
         <div className="left_part">
           <div className="img">
-            <div className="img_in" data-bg-img="/img/about/1.jpg">
+            <div className="img_in" data-bg-img="https://i.ibb.co/C20tSsb/15-Asset-Phantom.png">
               <img src="/img/1x1.jpg" alt="" />
             </div>
           </div>
           <div className="bg_overlay">
             <div className="bg_color" />
-            <div className="bg_image" data-bg-img="/img/about/bg.jpg" />
+            <div className="bg_image" data-bg-img="https://i.ibb.co/YpvTwPd/30-Asset-Mercurial3.png" />
           </div>
         </div>
         <div className="right_part">
@@ -28,32 +28,19 @@ const About = () => {
             </div>
             <div className="desc">
               <p>
-                As the first hero of the Meta Legends, collection has over 9,999
-                unique skins drawn from the different missions and challenges he
-                faced throughout his life.
+                Our platform allows investors to buy NFTs that represent real-life assets, such as real estate, cars, and other high-value items. Each NFT is backed by a physical asset, making it a secure investment with real-world value.
               </p>
               <p>
-                The artwork has been hand-drawned by Robert Green in the
-                traditional anime style and composited by Layla Efiyo.
+                Investors can purchase Boxed NFTs and receive a 10% yield on their investment, with yield times ranging from 1 day to 2 months. After 2 months, investors will receive their yield payment even if the asset has not been sold.
               </p>
               <p>
-                Curabitur pharetra velit eget dignissim varius. In vulputate
-                elit at tortor pellentesque, non pulvinar neque consequat.
-                Aenean tristique odio in libero tincidunt maximus. Nulla
-                pharetra viverra dolor ut blandit. Cras finibus vel tortor eget
-                lacinia. Pellentesque interdum elit non lacinia faucibus. Morbi
-                nec felis auctor, tincidunt lacus sit amet, iaculis ipsum.
-                Phasellus tempus sit amet justo et feugiat. Duis blandit semper
-                lorem, egestas euismod ligula pharetra ac. Sed porta lorem eget
-                neque bibendum, eget euismod justo mollis.
+
+                Boxed NFTs not only provide investors with a unique investment opportunity, but also help businesses grow by providing them with liquidity for their assets. As the project expands, we plan to add more features and functionality to our platform, making it even easier for investors to access real-world assets.
               </p>
               <p>
-                Donec tristique porttitor sem, eget fermentum elit varius nec.
-                Donec ut orci ipsum. Morbi efficitur felis eget dapibus
-                fermentum. Phasellus sed tellus volutpat, hendrerit leo non,
-                sollicitudin neque. Etiam ac lacus quam. Vivamus suscipit nisl
-                tellus, at congue odio commodo at. Cras ante enim, sodales at
-                pretium et, tempus at libero.
+                Our platform is built on Arbitrum, a Layer 2 scaling solution for Ethereum, which allows for fast and cost-effective transactions. We also use cutting-edge security measures to ensure that all assets are protected and all transactions are secure.
+
+                Join us in unlocking the potential of real-life assets with Boxed NFTs. Sign up today to start investing and earning yields on your investments!
               </p>
             </div>
             <a

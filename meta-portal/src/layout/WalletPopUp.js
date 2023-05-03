@@ -31,33 +31,6 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
                   <span className="text">Metamask</span>
                 </div>
               </li>
-              <li>
-                <div className="item">
-                  <a href="#" />
-                  <span className="icon">
-                    <img src="/img/wallet/coinbase.png" alt="" />
-                  </span>
-                  <span className="text">Coinbase</span>
-                </div>
-              </li>
-              <li>
-                <div className="item">
-                  <a href="#" />
-                  <span className="icon">
-                    <img src="/img/wallet/walletconnect.png" alt="" />
-                  </span>
-                  <span className="text">WalletConnect</span>
-                </div>
-              </li>
-              <li>
-                <div className="item">
-                  <a href="#" />
-                  <span className="icon">
-                    <img src="/img/wallet/venly.png" alt="" />
-                  </span>
-                  <span className="text">Venly</span>
-                </div>
-              </li>
             </ul>
           </div>
         </div>

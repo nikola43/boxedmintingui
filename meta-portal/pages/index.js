@@ -30,18 +30,7 @@ const Index = () => {
       {/* !Section Divider */}
       {/* Section RoadMap */}
       <RoadMapSlider />
-      {/* !Section RoadMap */}
-      {/* Section Divider */}
-      <SectionDivider />
-      {/* !Section Divider */}
-      {/* Section News */}
-      <News />
-      {/* !Section News */}
-      {/* Section Divider */}
-      <SectionDivider />
-      {/* !Section Divider */}
-      {/* Section */}
-      <Contact />
+
     </Layout>
   );
 };
