@@ -24,6 +24,7 @@ const WaterHero = () => {
                 elements. The Legends are stored as ERC-721 tokens on the
                 Ethereum blockchain and hosted on IPFS.
               </p>
+              {/*
               <a
                 href="https://opensea.io/"
                 className="metaportal_fn_button"
@@ -32,6 +33,7 @@ const WaterHero = () => {
               >
                 <span>Buy On Opensea</span>
               </a>
+            */}
             </div>
             <div className="slider_part">
               <Swiper {...Hero4Slider} className="swiper-container">

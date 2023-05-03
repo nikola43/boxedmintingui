@@ -54,7 +54,7 @@ const Collection = () => {
                 <div className="img">
                   <div
                     className="abs_img"
-                    data-bg-img="/img/collection/1.jpg"
+                    data-bg-img="https://i.ibb.co/YpvTwPd/30-Asset-Mercurial3.png"
                   />
                   <img src="/img/1x1.jpg" alt="" />
                 </div>
@@ -66,7 +66,7 @@ const Collection = () => {
                 <div className="img">
                   <div
                     className="abs_img"
-                    data-bg-img="/img/collection/2.jpg"
+                    data-bg-img="https://i.ibb.co/nc5bLjR/20-Asset-Mercurial4.png"
                   />
                   <img src="/img/1x1.jpg" alt="" />
                 </div>
@@ -78,7 +78,7 @@ const Collection = () => {
                 <div className="img">
                   <div
                     className="abs_img"
-                    data-bg-img="/img/collection/3.jpg"
+                    data-bg-img="https://i.ibb.co/C20tSsb/15-Asset-Phantom.png"
                   />
                   <img src="/img/1x1.jpg" alt="" />
                 </div>
@@ -90,7 +90,7 @@ const Collection = () => {
                 <div className="img">
                   <div
                     className="abs_img"
-                    data-bg-img="/img/collection/4.jpg"
+                    data-bg-img="https://i.ibb.co/smJmrpf/15-Asset-Mercurial1.png"
                   />
                   <img src="/img/1x1.jpg" alt="" />
                 </div>
@@ -104,7 +104,7 @@ const Collection = () => {
                 <div className="img">
                   <div
                     className="abs_img"
-                    data-bg-img="/img/collection/5.jpg"
+                    data-bg-img="https://i.ibb.co/GCxbJ6G/10-Asset-Speedportal.png"
                   />
                   <img src="/img/1x1.jpg" alt="" />
                 </div>
@@ -116,7 +116,7 @@ const Collection = () => {
                 <div className="img">
                   <div
                     className="abs_img"
-                    data-bg-img="/img/collection/6.jpg"
+                    data-bg-img="https://i.ibb.co/prDKd9T/10-Asset-Phantom2.png"
                   />
                   <img src="/img/1x1.jpg" alt="" />
                 </div>
@@ -128,7 +128,7 @@ const Collection = () => {
                 <div className="img">
                   <div
                     className="abs_img"
-                    data-bg-img="/img/collection/7.jpg"
+                    data-bg-img="https://i.ibb.co/5rBsSdp/10-Asset-Mizuno.png"
                   />
                   <img src="/img/1x1.jpg" alt="" />
                 </div>
@@ -140,7 +140,7 @@ const Collection = () => {
                 <div className="img">
                   <div
                     className="abs_img"
-                    data-bg-img="/img/collection/8.jpg"
+                    data-bg-img="https://i.ibb.co/6H5wJK5/10-Asset-Mercurial5.png"
                   />
                   <img src="/img/1x1.jpg" alt="" />
                 </div>

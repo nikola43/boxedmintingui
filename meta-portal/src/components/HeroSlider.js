@@ -216,14 +216,16 @@ const HeroSlider = () => {
           <p>
             Welcome to Boxed NFTs, the next generation of real-world asset investing. We believe that investing in tangible assets should be easier and more accessible to everyone, and that&apos;s why we&apos;ve created Boxed NFTs.
           </p>
-          <a
-            href="https://opensea.io/"
-            className="metaportal_fn_button"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span>Buy On Opensea</span>
-          </a>
+          {/*
+              <a
+                href="https://opensea.io/"
+                className="metaportal_fn_button"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>Buy On Opensea</span>
+              </a>
+            */}
         </div>
         {/* !Description */}
       </div>
