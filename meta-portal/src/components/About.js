@@ -244,14 +244,6 @@ const About = () => {
                 lorem, egestas euismod ligula pharetra ac. Sed porta lorem eget
                 neque bibendum, eget euismod justo mollis.
               </p>
-              <p>
-                Donec tristique porttitor sem, eget fermentum elit varius nec.
-                Donec ut orci ipsum. Morbi efficitur felis eget dapibus
-                fermentum. Phasellus sed tellus volutpat, hendrerit leo non,
-                sollicitudin neque. Etiam ac lacus quam. Vivamus suscipit nisl
-                tellus, at congue odio commodo at. Cras ante enim, sodales at
-                pretium et, tempus at libero.
-              </p>
             </div>
 
             {active ? (
@@ -313,24 +305,65 @@ const About = () => {
                 </li>
               </ul>
             </div>
-            {/* !Steps Shortcode */}
-            {/* Video Shortcode */}
-            <div className="fn_cs_video">
-              <img src="/img/video/1.jpg" alt="" />
-              <a
-                className="popup-youtube"
-                href="https://www.youtube.com/embed/7e90gBu4pas"
-              >
-                <img src="/svg/play.svg" alt="" className="fn__svg" />
-              </a>
-            </div>
-            {/* /Video Shortcode */}
           </div>
         </div>
         {/* !Mint Shortcode */}
       </div>
+      <section id="fun_facts">
+        <div className="container">
+          <div className="fn_cs_counter_list">
+            <ul>
+              <li>
+                <div className="item">
+                  <h3 className="fn__gradient_title">
+                    <span className="prefix" />
+                    <span>1000</span>
+                    <span className="suffix" />
+                  </h3>
+                  <p>Total Items</p>
+                  <div className="divider" />
+                </div>
+              </li>
+              <li>
+                <div className="item">
+                  <h3 className="fn__gradient_title">
+                    <span className="prefix" />
+                    <span>1000</span>
+                    <span className="suffix">k+</span>
+                  </h3>
+                  <p>Total Owners</p>
+                  <div className="divider" />
+                </div>
+              </li>
+              <li>
+                <div className="item">
+                  <h3 className="fn__gradient_title">
+                    <span className="prefix" />
+                    <span>1000</span>
+                    <span className="suffix" />
+                  </h3>
+                  <p>Floor Price (ETH)</p>
+                  <div className="divider" />
+                </div>
+              </li>
+              <li>
+                <div className="item">
+                  <h3 className="fn__gradient_title">
+                    <span className="prefix" />
+                    <span>1000</span>
+                    <span className="suffix">k+</span>
+                  </h3>
+                  <p>Volume Traded (ETH)</p>
+                  <div className="divider" />
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
       <Toaster />
     </section>
+
   );
 };
 export default About;

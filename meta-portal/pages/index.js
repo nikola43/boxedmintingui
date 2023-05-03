@@ -13,8 +13,8 @@ const Index = () => {
       {/* Home Section */}
       <HeroSlider />
       {/* !Home Section */}
-      {/* Fun Facts */}
-      <FunFacts />
+      {/* Fun Facts <FunFacts /> */}
+
       {/* !Fun Facts */}
       {/* About Section */}
       <About />
