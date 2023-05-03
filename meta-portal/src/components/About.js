@@ -1,5 +1,160 @@
-import Link from "next/link";
+
+import { useWeb3React } from "@web3-react/core";
+import { injected } from "../blockchain/metamaskConnector";
+import { useEffect, useState } from "react";
+import nftMintContractAbi from "../blockchain/abi/NftMint.json";
+import usdtAbi from "../blockchain/abi/Token.json";
+import toast, { Toaster } from "react-hot-toast";
+
+const NftMintAddress = "0x3cb33c80875A024903D2b82e480E71b6Bb92BF2e";
+const USDTAddress = "0x43B552A6A5B97f120788A8751547D5D953eFBBcA";
+
 const About = () => {
+
+  const { active, account, library, activate, deactivate, chainId } =
+    useWeb3React();
+
+  const [isMintingOneLoading, setIsMintingOneLoading] = useState(false);
+  const [isApproveLoading, setIsApproveLoading] = useState(false);
+  const [cost, setCost] = useState("0");
+  const [allowance, setAllowance] = useState("0");
+  const [amount, setAmount] = useState(1);
+  const [mintedAmount, setMintedAmount] = useState(0);
+  const [maxSupply, setMaxSupply] = useState("0");
+  const [usdtBalance, setUsdtBalance] = useState("0");
+
+  let nftMintContract;
+  let usdtContract;
+
+  if (library) {
+    nftMintContract = new library.eth.Contract(
+      nftMintContractAbi,
+      NftMintAddress
+    );
+
+    usdtContract = new library.eth.Contract(usdtAbi, USDTAddress);
+  }
+
+
+
+  async function connectMetamaks() {
+    try {
+      await activate(injected, undefined, true);
+      localStorage.setItem("connector", "injected");
+      localStorage.setItem("isWalletConnected", "true");
+    } catch (ex) {
+      console.log(ex.code);
+    }
+  }
+
+  useEffect(() => {
+    if (account) {
+      getUSDTAllowance().then(() => { });
+      getCost().then(() => { });
+      getTotalSupply().then(() => { });
+      getMaxSupply().then(() => { });
+      getUsdtBalance().then(() => { });
+    }
+  }, [account]);
+
+  async function getUSDTAllowance() {
+    const allowance = await usdtContract.methods
+      .allowance(account, NftMintAddress)
+      .call();
+    setAllowance(allowance);
+  }
+
+  async function getTotalSupply() {
+    const minted = await nftMintContract.methods
+      .totalSupply()
+      .call();
+    setMintedAmount(parseInt(minted));
+  }
+
+  async function getMaxSupply() {
+    const max = await nftMintContract.methods.maxSupply().call();
+    setMaxSupply(max);
+  }
+
+  async function getCost() {
+    const cost = await nftMintContract.methods.cost().call();
+    setCost(cost);
+  }
+
+  async function getUsdtBalance() {
+    const balance = await usdtContract.methods
+      .balanceOf(account)
+      .call();
+    setUsdtBalance(balance);
+  }
+
+  async function approveUSDT() {
+    console.log("Approving USDT");
+    setIsApproveLoading(true);
+
+    await usdtContract.methods
+      .approve(
+        NftMintAddress,
+        "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
+      )
+      .send({ from: account })
+      .then(
+        (res) => {
+          console.log(res);
+          toast.success("Approved Successfully");
+          setIsApproveLoading(false);
+          getUSDTAllowance().then(() => { });
+        },
+        (err) => {
+          console.log(err);
+          toast.error(err.message);
+          setIsApproveLoading(false);
+        }
+      );
+
+    console.log("Approving USDT");
+
+    setIsApproveLoading(false);
+  }
+
+
+
+  // function for minting
+  async function mintNFTs(mintAmount) {
+    const usdtBalance = await getUsdtBalance();
+
+    if (Number(usdtBalance) < Number(cost) * mintAmount) {
+      toast.error(
+        "Insufficient USDT Balance, required " +
+        Number(formatUnits(cost, "ether")) * mintAmount +
+        " USDT"
+      );
+      return;
+    }
+
+    setIsMintingOneLoading(true);
+
+    await nftMintContract.methods
+      .mintNFTs(mintAmount)
+      .send({ from: account })
+      .then(
+        (res) => {
+          console.log(res);
+          toast.success("Minted Successfully");
+          setIsMintingOneLoading(false);
+          getTotalSupply().then(() => { });
+          getUsdtBalance().then(() => { });
+        },
+        (err) => {
+          console.log(err);
+          toast.error(err.message);
+          setIsMintingOneLoading(false);
+        }
+      );
+  }
+
+
+
   return (
     <section id="about">
       {/* About Shortcode */}
@@ -98,11 +253,27 @@ const About = () => {
                 pretium et, tempus at libero.
               </p>
             </div>
-            <Link href="/nft-single">
-              <a className="metaportal_fn_button">
-                <span>How to Mint</span>
+
+            {active ? (
+              allowance === "0" ? (
+                <a className="metaportal_fn_button wallet_opener" onClick={approveUSDT}>
+                  <span>Approve</span>
+                </a>
+              ) : (
+                <a className="metaportal_fn_button wallet_opener" onClick={() => {
+                  mintNFTs(amount).then(() => { });
+                }}>
+                  <span>Mint</span>
+                </a>
+              )
+            ) : (
+              <a className="metaportal_fn_button wallet_opener" onClick={connectMetamaks}>
+                <span>Connect Wallet</span>
               </a>
-            </Link>
+            )}
+
+
+
           </div>
           <div className="right_part">
             {/* Steps Shortcode */}
@@ -158,6 +329,7 @@ const About = () => {
         </div>
         {/* !Mint Shortcode */}
       </div>
+      <Toaster />
     </section>
   );
 };
