@@ -7,10 +7,10 @@ import usdtAbi from "../blockchain/abi/Token.json";
 import toast, { Toaster } from "react-hot-toast";
 import { Contract } from '@ethersproject/contracts'
 import { useEthers } from '@usedapp/core';
-import { useContractFunction, useTokenAllowance } from "@usedapp/core";
+import { useContractFunction, useTokenAllowance, useTokenBalance } from "@usedapp/core";
 
 
-const NftMintAddress = "0x3cb33c80875A024903D2b82e480E71b6Bb92BF2e";
+const NftMintAddress = "0xf3347271f810401Fa6Fa65B236d331948A3bE4c6";
 const USDTAddress = "0x43B552A6A5B97f120788A8751547D5D953eFBBcA";
 
 const About = () => {
@@ -31,23 +31,19 @@ const About = () => {
   let nftMintContract;
   let usdtContract;
 
-
-
   nftMintContract = new Contract(NftMintAddress, nftMintContractAbi)
   usdtContract = new Contract(USDTAddress, usdtAbi);
 
-  const { state, send } = useContractFunction(usdtContract, "approve", { transactionName: "Approve" });
-
-  if (account) {
-    const allow = useTokenAllowance(USDTAddress, account, NftMintAddress);
-  }
-
-  
-
+  const { state: approveState, send: approveSend } = useContractFunction(usdtContract, "approve", { transactionName: "approve" });
+  const { state: mintState, send: mintSend } = useContractFunction(nftMintContract, "mintNFTs", { transactionName: "mintNFTs" });
+  const usdtAllowance = useTokenAllowance(USDTAddress, account, NftMintAddress);
+  const usdtUserBalance = useTokenBalance(USDTAddress, account);
 
   useEffect(() => {
     if (account) {
-      setAllowance(allow);
+      setAllowance(usdtAllowance);
+      setUsdtBalance(usdtUserBalance);
+      //send(NftMintAddress, "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
 
 
 
@@ -61,14 +57,6 @@ const About = () => {
     }
   }, [account]);
 
-
-  async function getUSDTAllowance() {
-    const allowance = await usdtContract.methods
-      .allowance(account, NftMintAddress)
-      .call();
-    setAllowance(allowance);
-  }
-
   async function getTotalSupply() {
     const minted = await nftMintContract.methods
       .totalSupply()
@@ -76,48 +64,17 @@ const About = () => {
     setMintedAmount(parseInt(minted));
   }
 
-  async function getMaxSupply() {
-    const max = await nftMintContract.methods.maxSupply().call();
-    setMaxSupply(max);
-  }
-
-  async function getCost() {
-    const cost = await nftMintContract.methods.cost().call();
-    setCost(cost);
-  }
-
-  async function getUsdtBalance() {
-    const balance = await usdtContract.methods
-      .balanceOf(account)
-      .call();
-    setUsdtBalance(balance);
-  }
-
   async function approveUSDT() {
     console.log("Approving USDT");
     setIsApproveLoading(true);
 
-    await usdtContract.methods
-      .approve(
-        NftMintAddress,
-        "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff"
-      )
-      .send({ from: account })
-      .then(
-        (res) => {
-          console.log(res);
-          toast.success("Approved Successfully");
-          setIsApproveLoading(false);
-          getUSDTAllowance().then(() => { });
-        },
-        (err) => {
-          console.log(err);
-          toast.error(err.message);
-          setIsApproveLoading(false);
-        }
-      );
-
-    console.log("Approving USDT");
+    approveSend(NftMintAddress, "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff").then((res) => {
+      console.log({ res });
+      if (res != undefined) {
+        toast.success("Approved Successfully");
+        setIsApproveLoading(false);
+      }
+    })
 
     setIsApproveLoading(false);
   }
@@ -126,7 +83,6 @@ const About = () => {
 
   // function for minting
   async function mintNFTs(mintAmount) {
-    const usdtBalance = await getUsdtBalance();
 
     if (Number(usdtBalance) < Number(cost) * mintAmount) {
       toast.error(
@@ -139,23 +95,14 @@ const About = () => {
 
     setIsMintingOneLoading(true);
 
-    await nftMintContract.methods
-      .mintNFTs(mintAmount)
-      .send({ from: account })
-      .then(
-        (res) => {
-          console.log(res);
-          toast.success("Minted Successfully");
-          setIsMintingOneLoading(false);
-          getTotalSupply().then(() => { });
-          getUsdtBalance().then(() => { });
-        },
-        (err) => {
-          console.log(err);
-          toast.error(err.message);
-          setIsMintingOneLoading(false);
-        }
-      );
+    mintSend(mintAmount).then((res) => {
+      console.log({ res });
+      if (res != undefined) {
+        toast.success("Minted Successfully");
+        setIsMintingOneLoading(false);
+      }
+    }
+    )
   }
 
 
@@ -230,29 +177,19 @@ const About = () => {
             </div>
             <div className="desc">
               <p>
-                As the first hero of the Meta Legends, collection has over 9,999
-                unique skins drawn from the different missions and challenges he
-                faced throughout his life.
+                Introducing &quot;Gen0&quot; NFTs, the first batch of Boxed NFTs representing elite soccer footwear. Each of the 160 &quot;Gen0&quot; NFTs is backed by a unique pair of soccer shoes, making them a secure investment with real-world value. Investors who purchase &quot;Gen0&quot; NFTs will receive a 10% yield on their investment as soon as the asset is sold.
+
               </p>
               <p>
-                The artwork has been hand-drawned by Robert Green in the
-                traditional anime style and composited by Layla Efiyo.
+
               </p>
               <p>
-                Curabitur pharetra velit eget dignissim varius. In vulputate
-                elit at tortor pellentesque, non pulvinar neque consequat.
-                Aenean tristique odio in libero tincidunt maximus. Nulla
-                pharetra viverra dolor ut blandit. Cras finibus vel tortor eget
-                lacinia. Pellentesque interdum elit non lacinia faucibus. Morbi
-                nec felis auctor, tincidunt lacus sit amet, iaculis ipsum.
-                Phasellus tempus sit amet justo et feugiat. Duis blandit semper
-                lorem, egestas euismod ligula pharetra ac. Sed porta lorem eget
-                neque bibendum, eget euismod justo mollis.
+                &quot;Gen0&quot; NFT holders will also be counted as early supporters of the project and will be eligible for different benefits in future stages. By owning a &quot;Gen0&quot; NFT, you&apos;re not just investing in an asset-backed digital token, you&apos;re also becoming part of the Boxed NFT community and paving the way for the future of asset-backed investing. Don&apos;t miss your chance to become a &quot;Gen0&quot; NFT holder and start your journey with us today!
               </p>
             </div>
 
             {account ? (
-              allowance === "0" ? (
+              allowance == "0" ? (
                 <a className="metaportal_fn_button wallet_opener" onClick={approveUSDT}>
                   <span>Approve</span>
                 </a>

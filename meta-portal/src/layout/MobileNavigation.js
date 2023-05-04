@@ -2,27 +2,46 @@ import Link from "next/link";
 import { Fragment, useState } from "react";
 import { connect } from "react-redux";
 import { navigationToggle, walletToggle } from "../redux/actions/siteSettings";
+import { useEthers } from '@usedapp/core';
 const MobileNavigation = ({ walletToggle, navigationToggle }) => {
+
+  const { account, deactivate, activateBrowserWallet } = useEthers()
   const [toggle, setToggle] = useState(false);
+
+  function getWalletAbreviation(
+    walletAddress
+  ) {
+    if (walletAddress !== null && walletAddress !== undefined) {
+      return walletAddress.slice(0, 6) + "..." + walletAddress.slice(-4);
+    }
+    return "";
+  }
+
+
+
+
   return (
     <Fragment>
       <div className="metaportal_fn_mobnav">
         <div className="mob_top">
           <div className="wallet">
-            <a
-              href="#"
-              className="metaportal_fn_button wallet_opener"
-              onClick={() => walletToggle(true)}
-            >
-              <span>Wallet</span>
-            </a>
+            {account ? (
+              <a className="metaportal_fn_button wallet_opener" onClick={deactivate}>
+                <span>{getWalletAbreviation(account)}</span>
+              </a>
+            ) : (
+
+              <a className="metaportal_fn_button wallet_opener" onClick={activateBrowserWallet}>
+                <span>Connect Wallet</span>
+              </a>
+            )}
           </div>
         </div>
         <div className="mob_mid">
           <div className="logo">
             <Link href="/">
               <a>
-                <img src="/img/logo.png" alt="" />
+                <img src="/img/logo.png" alt="" width="50px" height="50px" />
               </a>
             </Link>
           </div>

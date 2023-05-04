@@ -50,7 +50,7 @@ const Header = ({ walletToggle, navigationToggle }) => {
             <div className="logo">
               <Link href="/">
                 <a>
-                  <img src="/img/logo.png" alt="" />
+                  <img src="/img/logo.png" alt="" width="50px" height="50px" />
                 </a>
               </Link>
             </div>

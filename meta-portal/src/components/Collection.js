@@ -151,10 +151,7 @@ const Collection = () => {
         </div>
         <div className="fn_cs_desc">
           <p>
-            Meta Legends represent a collection of 17,000 legends categorized by
-            level of rarity and generated with hundreds of elements. The Legends
-            are stored as ERC-721 tokens on the Ethereum blockchain and hosted
-            on IPFS.
+            Gen0 is a limited collection of total 500 Boxed NFTs, each representing a real-life asset in the form of elite soccer boots. The collection is stored as ERC-721 tokens on Arbitrum, ensuring the security and transparency of each transaction. These NFTs can be easily minted on our website, making it simple for anyone to get started with this innovative investment opportunity.
           </p>
         </div>
       </div>
