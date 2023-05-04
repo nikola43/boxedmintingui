@@ -6,6 +6,9 @@ import nftMintContractAbi from "../blockchain/abi/NftMint.json";
 import usdtAbi from "../blockchain/abi/Token.json";
 import toast, { Toaster } from "react-hot-toast";
 
+var Contract = require('web3-eth-contract');
+
+
 const NftMintAddress = "0x3cb33c80875A024903D2b82e480E71b6Bb92BF2e";
 const USDTAddress = "0x43B552A6A5B97f120788A8751547D5D953eFBBcA";
 
@@ -26,15 +29,21 @@ const About = () => {
   let nftMintContract;
   let usdtContract;
 
-  if (library) {
-    console.log(library.provider)
+  Contract.setProvider(library);
 
-    nftMintContract = new library.eth.Contract(
+  if (library) {
+    console.log(library);
+
+
+
+    nftMintContract = new Contract(
       nftMintContractAbi,
       NftMintAddress
     );
 
-    usdtContract = new library.eth.Contract(usdtAbi, USDTAddress);
+    usdtContract = new Contract(usdtAbi, USDTAddress);
+    getUSDTAllowance().then(() => { });
+
   }
 
 
@@ -65,6 +74,7 @@ const About = () => {
     const allowance = await usdtContract.methods
       .allowance(account, NftMintAddress)
       .call();
+    console.log(allowance);
     setAllowance(allowance);
   }
 
