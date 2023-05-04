@@ -105,6 +105,20 @@ const About = () => {
     )
   }
 
+  function handleChange(event) {
+    const inputValue = event.target.value;
+    const intValue = parseInt(inputValue);
+
+    if (isNaN(intValue) || intValue < 0) {
+      // Don't update the state if the input is not a positive integer
+      event.preventDefault();
+      return;
+    } else {
+      setAmount(intValue);
+    }
+
+  }
+
 
 
   return (
@@ -124,8 +138,8 @@ const About = () => {
         </div>
         <div className="right_part">
           <div className="right_in">
-            <h3 className="fn__maintitle" data-text="The Rise of Legends">
-              The Rise of Legends
+            <h3 className="fn__maintitle" data-text="BOX YOUR ASSET!">
+              BOX YOUR ASSET!
             </h3>
             <div className="fn_cs_divider">
               <div className="divider">
@@ -151,12 +165,12 @@ const About = () => {
               </p>
             </div>
             <a
-              href="https://discord.com/"
+              href="https://t.me/+U6FHko4dC5g4YzA0"
               className="metaportal_fn_button"
               target="_blank"
               rel="noreferrer"
             >
-              <span>Find us On Discord</span>
+              <span>FIND US ON TELEGRAM</span>
             </a>
           </div>
         </div>
@@ -187,6 +201,9 @@ const About = () => {
                 &quot;Gen0&quot; NFT holders will also be counted as early supporters of the project and will be eligible for different benefits in future stages. By owning a &quot;Gen0&quot; NFT, you&apos;re not just investing in an asset-backed digital token, you&apos;re also becoming part of the Boxed NFT community and paving the way for the future of asset-backed investing. Don&apos;t miss your chance to become a &quot;Gen0&quot; NFT holder and start your journey with us today!
               </p>
             </div>
+
+            <input style={{ marginBottom: '20px' }} id="name" type="text" placeholder="Amount" onChange={handleChange} />
+
 
             {account ? (
               allowance == "0" ? (

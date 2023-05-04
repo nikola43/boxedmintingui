@@ -60,8 +60,6 @@ const Layout = ({ children, pageTitle }) => {
         {/* Totop */}
         <ScrollTop />
         {/* /Totop */}
-        {/* Search Button */}
-        <SearchButton />
         {/* !Search Button */}
       </div>
     </Fragment>
