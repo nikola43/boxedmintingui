@@ -27,6 +27,8 @@ const About = () => {
   let usdtContract;
 
   if (library) {
+    console.log(library.provider)
+
     nftMintContract = new library.eth.Contract(
       nftMintContractAbi,
       NftMintAddress
@@ -47,6 +49,7 @@ const About = () => {
     }
   }
 
+  /*
   useEffect(() => {
     if (account) {
       getUSDTAllowance().then(() => { });
@@ -56,6 +59,7 @@ const About = () => {
       getUsdtBalance().then(() => { });
     }
   }, [account]);
+  */
 
   async function getUSDTAllowance() {
     const allowance = await usdtContract.methods

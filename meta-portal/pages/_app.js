@@ -2,17 +2,46 @@ import Head from "next/head";
 import { Provider } from "react-redux";
 import store from "../src/redux/store";
 import "../styles/globals.css";
-import Web3 from 'web3'
+//const Web3 = require('web3');
+//const web3 = new Web3();
 import { Web3ReactProvider } from '@web3-react/core'
+import { initializeConnector } from '@web3-react/core'
+import { MetaMask } from '@web3-react/metamask'
+import { Web3Provider } from "@ethersproject/providers";
+
+/*
+export const [metaMask, hooks] = initializeConnector < MetaMask > ((actions) => new MetaMask({ actions }))
+
+const connectors = [
+  [metaMask, metaMaskHooks]
+]
+*/
 
 function MyApp({ Component, pageProps }) {
 
+  function getLibrary(provider, connector) {
+    return new Web3Provider(provider);
+  }
+  /*
+
+  */
+  /*
+ 
+
+      <Web3ReactProvider connectors={connectors}>
+
+  */
+
+  /*
   function getLibrary(provider) {
     return new Web3(provider)
   }
+  */
 
   return (
     <Web3ReactProvider getLibrary={getLibrary}>
+
+
       <Provider store={store}>
 
         <Head>
