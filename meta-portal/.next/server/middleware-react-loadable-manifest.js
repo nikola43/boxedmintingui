@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST={}
+self.__REACT_LOADABLE_MANIFEST={"index-4.js -> ../src/components/WaterHero":{id:1413,files:["static/chunks/b637e9a5.e604845080ecb6a4.js","static/chunks/413.ea34221e371f2453.js"]}};

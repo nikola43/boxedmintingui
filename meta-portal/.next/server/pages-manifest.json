@@ -1,6 +1,24 @@
 {
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
+  "/404": "pages/404.html",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js"
+  "/blog": "pages/blog.html",
+  "/blog-single": "pages/blog-single.html",
+  "/collection": "pages/collection.html",
+  "/api/hello": "pages/api/hello.js",
+  "/index-2": "pages/index-2.html",
+  "/index-3": "pages/index-3.html",
+  "/coming-soon": "pages/coming-soon.html",
+  "/index-5": "pages/index-5.html",
+  "/nft-single": "pages/nft-single.html",
+  "/": "pages/index.html",
+  "/nft/[id]": "pages/nft/[id].html",
+  "/index-6": "pages/index-6.html",
+  "/no-results": "pages/no-results.html",
+  "/index-4": "pages/index-4.html",
+  "/policy": "pages/policy.html",
+  "/protected": "pages/protected.html",
+  "/terms-conditions": "pages/terms-conditions.html",
+  "/_error": "pages/_error.js",
+  "/cookies": "pages/cookies.html"
 }
