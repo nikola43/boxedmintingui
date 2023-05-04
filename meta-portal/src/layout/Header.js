@@ -68,8 +68,18 @@ const Header = ({ walletToggle, navigationToggle }) => {
                 </Link>
               </li>
               <li>
+                <Link href="/#mint">
+                  <a className="creative_link">Mint</a>
+                </Link>
+              </li>
+              <li>
                 <Link href="/#collection">
                   <a className="creative_link">Collection</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/#roadmap">
+                  <a className="creative_link">Roadmap</a>
                 </Link>
               </li>
             </ul>

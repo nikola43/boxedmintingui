@@ -9,25 +9,7 @@ const Footer = () => {
               Copyright 2023 — Boxed all rights reserved
             </p>
           </div>
-          <div className="right_part">
-            <ul>
-              <li>
-                <Link href="/policy">
-                  <a className="creative_link">Privacy Policy</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/cookies">
-                  <a className="creative_link">Cookies</a>
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms-conditions">
-                  <a className="creative_link">Terms &amp; Conditions</a>
-                </Link>
-              </li>
-            </ul>
-          </div>
+
         </div>
       </div>
     </footer>

@@ -8,15 +8,20 @@ import toast, { Toaster } from "react-hot-toast";
 import { Contract } from '@ethersproject/contracts'
 import { useEthers } from '@usedapp/core';
 import { useContractFunction, useTokenAllowance, useTokenBalance } from "@usedapp/core";
+import { useCall } from '@usedapp/core';
+import useTotalSupply from "../hooks/useTotalSupply";
+import useGetMintersCounter from "../hooks/useGetMintersCounter";
+import { formatEther } from "ethers/lib/utils";
 
 
-const NftMintAddress = "0xf3347271f810401Fa6Fa65B236d331948A3bE4c6";
+const NftMintAddress = "0x279D7f43923A6bb8406C314Aa71c94019127F3D5";
 const USDTAddress = "0x43B552A6A5B97f120788A8751547D5D953eFBBcA";
+
 
 const About = () => {
 
 
-  const { account, deactivate, activateBrowserWallet } = useEthers()
+  const { account, activateBrowserWallet } = useEthers()
 
 
   const [isMintingOneLoading, setIsMintingOneLoading] = useState(false);
@@ -25,8 +30,9 @@ const About = () => {
   const [allowance, setAllowance] = useState("0");
   const [amount, setAmount] = useState(1);
   const [mintedAmount, setMintedAmount] = useState(0);
-  const [maxSupply, setMaxSupply] = useState("0");
+  const [totalSupply, setTotalSupply] = useState(0);
   const [usdtBalance, setUsdtBalance] = useState("0");
+  const [numberOfMinters, setNumberOfMinters] = useState(0);
 
   let nftMintContract;
   let usdtContract;
@@ -38,31 +44,29 @@ const About = () => {
   const { state: mintState, send: mintSend } = useContractFunction(nftMintContract, "mintNFTs", { transactionName: "mintNFTs" });
   const usdtAllowance = useTokenAllowance(USDTAddress, account, NftMintAddress);
   const usdtUserBalance = useTokenBalance(USDTAddress, account);
+  const collectionTotalSupply = useTotalSupply(nftMintContract);
+  const mintersCounter = useGetMintersCounter(nftMintContract);
 
   useEffect(() => {
     if (account) {
-      setAllowance(usdtAllowance);
-      setUsdtBalance(usdtUserBalance);
-      //send(NftMintAddress, "0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
 
+      if (usdtAllowance != undefined) {
+        setAllowance(usdtAllowance);
+      }
 
+      if (usdtUserBalance != undefined) {
+        setUsdtBalance(usdtUserBalance);
+      }
 
+      if (collectionTotalSupply != undefined) {
+        setTotalSupply(collectionTotalSupply);
+      }
 
-      /*getUSDTAllowance().then(() => { });
-      getCost().then(() => { });
-      getTotalSupply().then(() => { });
-      getMaxSupply().then(() => { });
-      getUsdtBalance().then(() => { });
-      */
+      if (mintersCounter != undefined) {
+        setNumberOfMinters(mintersCounter);
+      }
     }
-  }, [account]);
-
-  async function getTotalSupply() {
-    const minted = await nftMintContract.methods
-      .totalSupply()
-      .call();
-    setMintedAmount(parseInt(minted));
-  }
+  }, [account, collectionTotalSupply, usdtAllowance, usdtUserBalance]);
 
   async function approveUSDT() {
     console.log("Approving USDT");
@@ -72,6 +76,7 @@ const About = () => {
       console.log({ res });
       if (res != undefined) {
         toast.success("Approved Successfully");
+        setAllowance(0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff);
         setIsApproveLoading(false);
       }
     })
@@ -94,15 +99,14 @@ const About = () => {
     }
 
     setIsMintingOneLoading(true);
-
     mintSend(mintAmount).then((res) => {
       console.log({ res });
       if (res != undefined) {
         toast.success("Minted Successfully");
         setIsMintingOneLoading(false);
       }
-    }
-    )
+    })
+    setIsMintingOneLoading(false);
   }
 
   function handleChange(event) {
@@ -176,98 +180,100 @@ const About = () => {
         </div>
       </div>
       {/* !About Shortcode */}
-      <div className="container">
-        {/* Mint Shortcode */}
-        <div className="fn_cs_mint">
-          <div className="left_part">
-            <h3 className="fn__maintitle" data-text="How to Mint">
-              How to Mint
-            </h3>
-            <div className="fn_cs_divider">
-              <div className="divider">
-                <span />
-                <span />
+      <section id="mint">
+        <div className="container">
+          {/* Mint Shortcode */}
+          <div className="fn_cs_mint">
+            <div className="left_part">
+              <h3 className="fn__maintitle" data-text="How to Mint">
+                How to Mint
+              </h3>
+              <div className="fn_cs_divider">
+                <div className="divider">
+                  <span />
+                  <span />
+                </div>
+              </div>
+              <div className="desc">
+                <p>
+                  Introducing &quot;Gen0&quot; NFTs, the first batch of Boxed NFTs representing elite soccer footwear. Each of the 160 &quot;Gen0&quot; NFTs is backed by a unique pair of soccer shoes, making them a secure investment with real-world value. Investors who purchase &quot;Gen0&quot; NFTs will receive a 10% yield on their investment as soon as the asset is sold.
+
+                </p>
+                <p>
+
+                </p>
+                <p>
+                  &quot;Gen0&quot; NFT holders will also be counted as early supporters of the project and will be eligible for different benefits in future stages. By owning a &quot;Gen0&quot; NFT, you&apos;re not just investing in an asset-backed digital token, you&apos;re also becoming part of the Boxed NFT community and paving the way for the future of asset-backed investing. Don&apos;t miss your chance to become a &quot;Gen0&quot; NFT holder and start your journey with us today!
+                </p>
+              </div>
+
+              <input style={{ marginBottom: '20px' }} id="name" type="text" placeholder="Amount" onChange={handleChange} />
+
+
+              {account ? (
+                allowance == "0" ? (
+                  <a className="metaportal_fn_button wallet_opener" onClick={approveUSDT}>
+                    <span>Approve</span>
+                  </a>
+                ) : (
+                  <a className="metaportal_fn_button wallet_opener" onClick={() => {
+                    mintNFTs(amount).then(() => { });
+                  }}>
+                    <span>Mint</span>
+                  </a>
+                )
+              ) : (
+                <a className="metaportal_fn_button wallet_opener" onClick={activateBrowserWallet}>
+                  <span>Connect Wallet</span>
+                </a>
+              )}
+
+
+
+            </div>
+            <div className="right_part">
+              {/* Steps Shortcode */}
+              <div className="fn_cs_steps">
+                <ul>
+                  <li>
+                    <div className="item">
+                      <div className="item_in">
+                        <h3 className="fn__gradient_title">01</h3>
+                        <p>Connect your Wallet</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="item">
+                      <div className="item_in">
+                        <h3 className="fn__gradient_title">02</h3>
+                        <p>Select Your Quantity</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="item">
+                      <div className="item_in">
+                        <h3 className="fn__gradient_title">03</h3>
+                        <p>Confirm The Transaction</p>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div className="item">
+                      <div className="item_in">
+                        <h3 className="fn__gradient_title">04</h3>
+                        <p>Receive Your NFT’s</p>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
               </div>
             </div>
-            <div className="desc">
-              <p>
-                Introducing &quot;Gen0&quot; NFTs, the first batch of Boxed NFTs representing elite soccer footwear. Each of the 160 &quot;Gen0&quot; NFTs is backed by a unique pair of soccer shoes, making them a secure investment with real-world value. Investors who purchase &quot;Gen0&quot; NFTs will receive a 10% yield on their investment as soon as the asset is sold.
-
-              </p>
-              <p>
-
-              </p>
-              <p>
-                &quot;Gen0&quot; NFT holders will also be counted as early supporters of the project and will be eligible for different benefits in future stages. By owning a &quot;Gen0&quot; NFT, you&apos;re not just investing in an asset-backed digital token, you&apos;re also becoming part of the Boxed NFT community and paving the way for the future of asset-backed investing. Don&apos;t miss your chance to become a &quot;Gen0&quot; NFT holder and start your journey with us today!
-              </p>
-            </div>
-
-            <input style={{ marginBottom: '20px' }} id="name" type="text" placeholder="Amount" onChange={handleChange} />
-
-
-            {account ? (
-              allowance == "0" ? (
-                <a className="metaportal_fn_button wallet_opener" onClick={approveUSDT}>
-                  <span>Approve</span>
-                </a>
-              ) : (
-                <a className="metaportal_fn_button wallet_opener" onClick={() => {
-                  mintNFTs(amount).then(() => { });
-                }}>
-                  <span>Mint</span>
-                </a>
-              )
-            ) : (
-              <a className="metaportal_fn_button wallet_opener" onClick={activateBrowserWallet}>
-                <span>Connect Wallet</span>
-              </a>
-            )}
-
-
-
           </div>
-          <div className="right_part">
-            {/* Steps Shortcode */}
-            <div className="fn_cs_steps">
-              <ul>
-                <li>
-                  <div className="item">
-                    <div className="item_in">
-                      <h3 className="fn__gradient_title">01</h3>
-                      <p>Connect your Wallet</p>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div className="item">
-                    <div className="item_in">
-                      <h3 className="fn__gradient_title">02</h3>
-                      <p>Select Your Quantity</p>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div className="item">
-                    <div className="item_in">
-                      <h3 className="fn__gradient_title">03</h3>
-                      <p>Confirm The Transaction</p>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div className="item">
-                    <div className="item_in">
-                      <h3 className="fn__gradient_title">04</h3>
-                      <p>Receive Your NFT’s</p>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
+          {/* !Mint Shortcode */}
         </div>
-        {/* !Mint Shortcode */}
-      </div>
+      </section>
       <section id="fun_facts">
         <div className="container">
           <div className="fn_cs_counter_list">
@@ -276,10 +282,10 @@ const About = () => {
                 <div className="item">
                   <h3 className="fn__gradient_title">
                     <span className="prefix" />
-                    <span>1000</span>
+                    <span>500</span>
                     <span className="suffix" />
                   </h3>
-                  <p>Total Items</p>
+                  <p>BOXED NFTS</p>
                   <div className="divider" />
                 </div>
               </li>
@@ -287,10 +293,10 @@ const About = () => {
                 <div className="item">
                   <h3 className="fn__gradient_title">
                     <span className="prefix" />
-                    <span>1000</span>
-                    <span className="suffix">k+</span>
+                    <span>10%</span>
+                    <span className="suffix"></span>
                   </h3>
-                  <p>Total Owners</p>
+                  <p>YIELD ON INVESTMENT</p>
                   <div className="divider" />
                 </div>
               </li>
@@ -298,10 +304,10 @@ const About = () => {
                 <div className="item">
                   <h3 className="fn__gradient_title">
                     <span className="prefix" />
-                    <span>1000</span>
+                    <span>250$</span>
                     <span className="suffix" />
                   </h3>
-                  <p>Floor Price (ETH)</p>
+                  <p>PRICE PER NFT</p>
                   <div className="divider" />
                 </div>
               </li>
@@ -309,10 +315,10 @@ const About = () => {
                 <div className="item">
                   <h3 className="fn__gradient_title">
                     <span className="prefix" />
-                    <span>1000</span>
-                    <span className="suffix">k+</span>
+                    <span>RISK FREE</span>
+                    <span className="suffix"></span>
                   </h3>
-                  <p>Volume Traded (ETH)</p>
+                  <p>BIND TO REAL-LIFE ASSET</p>
                   <div className="divider" />
                 </div>
               </li>

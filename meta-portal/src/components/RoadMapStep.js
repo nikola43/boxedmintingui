@@ -23,13 +23,13 @@ const RoadMapSlider = () => {
                     <span className="icon" />
                     <span className="phase">Phase 01</span>
                     <div className="item_in">
-                      <p className="date">October 09, 2022</p>
-                      <h3 className="title">Mini Game Lounch For Community</h3>
+
                       <p className="desc">
-                        Morbi non dignissim erat, a blandit felis. Suspendisse
-                        nec lorem vel orci varius congue ut vitae est. Nam quis
-                        tempus nisl. Fusce posuere nibh a mi molestie, sit amet
-                        ornare lectus interdum.
+                        Release of BOXED website v1, including basic information on the project and Gen0 NFT collection.
+                        Launch of BOXED Telegram group for community engagement and support.
+                        Launch of BOXED Twitter account for project updates and announcements.
+                        Minting of Gen0 NFT collection, part 1.
+
                       </p>
                     </div>
                   </div>
@@ -39,13 +39,12 @@ const RoadMapSlider = () => {
                     <span className="icon" />
                     <span className="phase">Phase 02</span>
                     <div className="item_in">
-                      <p className="date">October 17, 2022</p>
-                      <h3 className="title">New Set #12 is Coming Up</h3>
                       <p className="desc">
-                        Morbi non dignissim erat, a blandit felis. Suspendisse
-                        nec lorem vel orci varius congue ut vitae est. Nam quis
-                        tempus nisl. Fusce posuere nibh a mi molestie, sit amet
-                        ornare lectus interdum.
+                        Release of Whitepaper
+                        Minting of Gen0 NFT collection, part 2.
+                        Release of BOXED dapp v1, allowing to see trade status of each NFT, as well as the yield times for each one.
+                        Deployment of $BXD token, providing a utility token for BOXED ecosystem.
+                        Expansion of partnerships and collaborations to increase adoption of BOXED NFTs.
                       </p>
                     </div>
                   </div>
@@ -55,13 +54,11 @@ const RoadMapSlider = () => {
                     <span className="icon" />
                     <span className="phase">Phase 03</span>
                     <div className="item_in">
-                      <p className="date">October 28, 2022</p>
-                      <h3 className="title">Metaverse 3.0 Launch</h3>
+
                       <p className="desc">
-                        Morbi non dignissim erat, a blandit felis. Suspendisse
-                        nec lorem vel orci varius congue ut vitae est. Nam quis
-                        tempus nisl. Fusce posuere nibh a mi molestie, sit amet
-                        ornare lectus interdum.
+                        Release of BOXED dapp v2, with enhanced features and functionalities.
+                        Airdrop of BOXED NFTs to early supporters and community members.
+                        Updated roadmap outlining future developments and goals for the project.
                       </p>
                     </div>
                   </div>
@@ -71,93 +68,8 @@ const RoadMapSlider = () => {
                     <span className="icon" />
                     <span className="phase">Phase 04</span>
                     <div className="item_in">
-                      <p className="date">November 11, 2022</p>
-                      <h3 className="title">Female Set #20 is Coming Up</h3>
                       <p className="desc">
-                        Morbi non dignissim erat, a blandit felis. Suspendisse
-                        nec lorem vel orci varius congue ut vitae est. Nam quis
-                        tempus nisl. Fusce posuere nibh a mi molestie, sit amet
-                        ornare lectus interdum.
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="swiper-slide">
-                  <div className="item">
-                    <span className="icon" />
-                    <span className="phase">Phase 05</span>
-                    <div className="item_in">
-                      <p className="date">November 23, 2022</p>
-                      <h3 className="title">Mini Game Lounch For Community</h3>
-                      <p className="desc">
-                        Morbi non dignissim erat, a blandit felis. Suspendisse
-                        nec lorem vel orci varius congue ut vitae est. Nam quis
-                        tempus nisl. Fusce posuere nibh a mi molestie, sit amet
-                        ornare lectus interdum.
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="swiper-slide">
-                  <div className="item">
-                    <span className="icon" />
-                    <span className="phase">Phase 06</span>
-                    <div className="item_in">
-                      <p className="date">December 02, 2022</p>
-                      <h3 className="title">Mini Game Lounch For Community</h3>
-                      <p className="desc">
-                        Morbi non dignissim erat, a blandit felis. Suspendisse
-                        nec lorem vel orci varius congue ut vitae est. Nam quis
-                        tempus nisl. Fusce posuere nibh a mi molestie, sit amet
-                        ornare lectus interdum.
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="swiper-slide">
-                  <div className="item">
-                    <span className="icon" />
-                    <span className="phase">Phase 07</span>
-                    <div className="item_in">
-                      <p className="date">January 14, 2023</p>
-                      <h3 className="title">Mini Game Lounch For Community</h3>
-                      <p className="desc">
-                        Morbi non dignissim erat, a blandit felis. Suspendisse
-                        nec lorem vel orci varius congue ut vitae est. Nam quis
-                        tempus nisl. Fusce posuere nibh a mi molestie, sit amet
-                        ornare lectus interdum.
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="swiper-slide">
-                  <div className="item">
-                    <span className="icon" />
-                    <span className="phase">Phase 08</span>
-                    <div className="item_in">
-                      <p className="date">January 28, 2023</p>
-                      <h3 className="title">Mini Game Lounch For Community</h3>
-                      <p className="desc">
-                        Morbi non dignissim erat, a blandit felis. Suspendisse
-                        nec lorem vel orci varius congue ut vitae est. Nam quis
-                        tempus nisl. Fusce posuere nibh a mi molestie, sit amet
-                        ornare lectus interdum.
-                      </p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide className="swiper-slide">
-                  <div className="item">
-                    <span className="icon" />
-                    <span className="phase">Phase 09</span>
-                    <div className="item_in">
-                      <p className="date">February 12, 2023</p>
-                      <h3 className="title">Mini Game Lounch For Community</h3>
-                      <p className="desc">
-                        Morbi non dignissim erat, a blandit felis. Suspendisse
-                        nec lorem vel orci varius congue ut vitae est. Nam quis
-                        tempus nisl. Fusce posuere nibh a mi molestie, sit amet
-                        ornare lectus interdum.
+                        TBA
                       </p>
                     </div>
                   </div>
