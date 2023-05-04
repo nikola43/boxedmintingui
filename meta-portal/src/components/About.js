@@ -1,20 +1,15 @@
 
-import { useWeb3React } from "@web3-react/core";
-import { injected } from "../blockchain/metamaskConnector";
+import { Contract } from '@ethersproject/contracts';
+import { useContractFunction, useEthers, useTokenAllowance, useTokenBalance } from '@usedapp/core';
 import { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import nftMintContractAbi from "../blockchain/abi/NftMint.json";
 import usdtAbi from "../blockchain/abi/Token.json";
-import toast, { Toaster } from "react-hot-toast";
-import { Contract } from '@ethersproject/contracts'
-import { useEthers } from '@usedapp/core';
-import { useContractFunction, useTokenAllowance, useTokenBalance } from "@usedapp/core";
-import { useCall } from '@usedapp/core';
 import useTotalSupply from "../hooks/useTotalSupply";
-import useGetMintersCounter from "../hooks/useGetMintersCounter";
-import { formatEther } from "ethers/lib/utils";
+import { formatEther } from 'ethers/lib/utils';
 
 
-const NftMintAddress = "0x279D7f43923A6bb8406C314Aa71c94019127F3D5";
+const NftMintAddress = "0x063c6a32af4c9BD25F3832f86551f3823350aB8E";
 const USDTAddress = "0x43B552A6A5B97f120788A8751547D5D953eFBBcA";
 
 
@@ -23,13 +18,11 @@ const About = () => {
 
   const { account, activateBrowserWallet } = useEthers()
 
-
   const [isMintingOneLoading, setIsMintingOneLoading] = useState(false);
   const [isApproveLoading, setIsApproveLoading] = useState(false);
   const [cost, setCost] = useState("0");
   const [allowance, setAllowance] = useState("0");
   const [amount, setAmount] = useState(1);
-  const [mintedAmount, setMintedAmount] = useState(0);
   const [totalSupply, setTotalSupply] = useState(0);
   const [usdtBalance, setUsdtBalance] = useState("0");
   const [numberOfMinters, setNumberOfMinters] = useState(0);
@@ -45,7 +38,10 @@ const About = () => {
   const usdtAllowance = useTokenAllowance(USDTAddress, account, NftMintAddress);
   const usdtUserBalance = useTokenBalance(USDTAddress, account);
   const collectionTotalSupply = useTotalSupply(nftMintContract);
-  const mintersCounter = useGetMintersCounter(nftMintContract);
+  //const mintersCounter = useGetMintersCounter(nftMintContract);
+
+  const hexToDecimal = hex => parseInt(hex, 16);
+
 
   useEffect(() => {
     if (account) {
@@ -59,14 +55,17 @@ const About = () => {
       }
 
       if (collectionTotalSupply != undefined) {
-        setTotalSupply(collectionTotalSupply);
+        console.log(collectionTotalSupply[0]);
+        setTotalSupply(hexToDecimal(collectionTotalSupply[0]._hex));
       }
-
-      if (mintersCounter != undefined) {
-        setNumberOfMinters(mintersCounter);
-      }
+      /*
+          
+          if (mintersCounter != undefined) {
+            setNumberOfMinters(mintersCounter);
+          }
+          */
     }
-  }, [account, collectionTotalSupply, usdtAllowance, usdtUserBalance]);
+  }, [account, usdtAllowance, usdtUserBalance, collectionTotalSupply]);
 
   async function approveUSDT() {
     console.log("Approving USDT");
@@ -104,23 +103,24 @@ const About = () => {
       if (res != undefined) {
         toast.success("Minted Successfully");
         setIsMintingOneLoading(false);
+        setTotalSupply(totalSupply + mintAmount);
       }
     })
     setIsMintingOneLoading(false);
   }
 
   function handleChange(event) {
+    console.log(event.target.value);
+    console.log(event);
     const inputValue = event.target.value;
     const intValue = parseInt(inputValue);
 
     if (isNaN(intValue) || intValue < 0) {
-      // Don't update the state if the input is not a positive integer
       event.preventDefault();
       return;
     } else {
       setAmount(intValue);
     }
-
   }
 
 
@@ -153,19 +153,18 @@ const About = () => {
             </div>
             <div className="desc">
               <p>
-                Our platform allows investors to buy NFTs that represent real-life assets, such as real estate, cars, and other high-value items. Each NFT is backed by a physical asset, making it a secure investment with real-world value.
+                Welcome to Boxed NFTs, the next generation of real-world asset investing. We believe that investing in tangible assets should be easier and more accessible to everyone, and that&apos;s why we&apos;ve created Boxed NFTs.
               </p>
               <p>
-                Investors can purchase Boxed NFTs and receive a 10% yield on their investment, with yield times ranging from 1 day to 2 months. After 2 months, investors will receive their yield payment even if the asset has not been sold.
+                Our platform allows investors to buy &quot;GEN0&quot; NFTs that represent elite soccer footwear, backed by physical assets, making it a secure investment with real-world value.
               </p>
               <p>
-
-                Boxed NFTs not only provide investors with a unique investment opportunity, but also help businesses grow by providing them with liquidity for their assets. As the project expands, we plan to add more features and functionality to our platform, making it even easier for investors to access real-world assets.
+                Investors can purchase Boxed NFTs and receive a 10% yield on their investment, with yield times ranging from 1 week to 3 months. The yield is paid out as soon as the asset is sold. Even if the asset has not been sold after 3 months, investors will receive their yield payment.</p>
+              <p>
+                Boxed NFTs not only provide investors with a unique investment opportunity but also help businesses grow by providing them with liquidity for their assets. As the project expands, we plan to add more features and functionality to our platform.
               </p>
               <p>
-                Our platform is built on Arbitrum, a Layer 2 scaling solution for Ethereum, which allows for fast and cost-effective transactions. We also use cutting-edge security measures to ensure that all assets are protected and all transactions are secure.
-
-                Join us in unlocking the potential of real-life assets with Boxed NFTs. Sign up today to start investing and earning yields on your investments!
+                Join us and start investing and earning yields on your investments!
               </p>
             </div>
             <a
@@ -207,7 +206,9 @@ const About = () => {
                 </p>
               </div>
 
-              <input style={{ marginBottom: '20px' }} id="name" type="text" placeholder="Amount" onChange={handleChange} />
+              <p>Minted {totalSupply} / 160</p>
+
+              <input value={amount} style={{ marginBottom: '20px' }} id="name" type="text" placeholder="Amount" onChange={handleChange} />
 
 
               {account ? (

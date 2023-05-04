@@ -26,10 +26,18 @@ const RoadMapSlider = () => {
 
                       <p className="desc">
                         Release of BOXED website v1, including basic information on the project and Gen0 NFT collection.
+                      </p>
+                      <p></p>
+                      <p className="desc">
                         Launch of BOXED Telegram group for community engagement and support.
+                      </p>
+                      <p></p>
+                      <p className="desc">
                         Launch of BOXED Twitter account for project updates and announcements.
+                      </p>
+                      <p></p>
+                      <p className="desc">
                         Minting of Gen0 NFT collection, part 1.
-
                       </p>
                     </div>
                   </div>
@@ -41,9 +49,21 @@ const RoadMapSlider = () => {
                     <div className="item_in">
                       <p className="desc">
                         Release of Whitepaper
+                      </p>
+                      <p></p>
+                      <p className="desc">
                         Minting of Gen0 NFT collection, part 2.
+                      </p>
+                      <p></p>
+                      <p className="desc">
                         Release of BOXED dapp v1, allowing to see trade status of each NFT, as well as the yield times for each one.
+                      </p>
+                      <p></p>
+                      <p className="desc">
                         Deployment of $BXD token, providing a utility token for BOXED ecosystem.
+                      </p>
+                      <p></p>
+                      <p className="desc">
                         Expansion of partnerships and collaborations to increase adoption of BOXED NFTs.
                       </p>
                     </div>
@@ -57,7 +77,13 @@ const RoadMapSlider = () => {
 
                       <p className="desc">
                         Release of BOXED dapp v2, with enhanced features and functionalities.
+                      </p>
+                      <p></p>
+                      <p className="desc">
                         Airdrop of BOXED NFTs to early supporters and community members.
+                      </p>
+                      <p></p>
+                      <p className="desc">
                         Updated roadmap outlining future developments and goals for the project.
                       </p>
                     </div>

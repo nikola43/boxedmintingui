@@ -65,8 +65,18 @@ const MobileNavigation = ({ walletToggle, navigationToggle }) => {
               </a>
             </li>
             <li>
+              <a className="creative_link" href="#mint">
+                Mint
+              </a>
+            </li>
+            <li>
               <a className="creative_link" href="#collection">
                 Collection
+              </a>
+            </li>
+            <li>
+              <a className="creative_link" href="#roadmap">
+                Roadmap
               </a>
             </li>
           </ul>
