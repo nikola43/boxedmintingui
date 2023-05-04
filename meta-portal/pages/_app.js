@@ -2,44 +2,38 @@ import Head from "next/head";
 import { Provider } from "react-redux";
 import store from "../src/redux/store";
 import "../styles/globals.css";
-//const Web3 = require('web3');
-//const web3 = new Web3();
-import { Web3ReactProvider } from '@web3-react/core'
-import { initializeConnector } from '@web3-react/core'
-import { MetaMask } from '@web3-react/metamask'
-import { Web3Provider } from "@ethersproject/providers";
 
-/*
-export const [metaMask, hooks] = initializeConnector < MetaMask > ((actions) => new MetaMask({ actions }))
+import { DAppProvider } from '@usedapp/core';
 
-const connectors = [
-  [metaMask, metaMaskHooks]
-]
-*/
+export const ArbitrumGoerliChain = {
+  chainId: 421613,
+  chainName: 'Arbitrum Goerli',
+  isTestChain: false,
+  isLocalChain: false,
+  multicallAddress: '0x0000000000000000000000000000000000000000',
+  getExplorerAddressLink: (address) => `https://goerli.arbiscan.io/address/${address}`,
+  getExplorerTransactionLink: (transactionHash) => `https://goerli.arbiscan.io/tx/${transactionHash}`,
+  // Optional parameters:
+  rpcUrl: 'https://soft-muddy-fire.arbitrum-goerli.quiknode.pro/52f6f81b9b0ff29b6e5bd53967f1f5138650e2fb',
+  blockExplorerUrl: 'https://goerli.arbiscan.io',
+  nativeCurrency: {
+    name: 'Ether',
+    symbol: 'ETH',
+    decimals: 18,
+  }
+}
 
 function MyApp({ Component, pageProps }) {
 
-  function getLibrary(provider, connector) {
-    return new Web3Provider(provider);
+  const config = {
+    readOnlyChainId: ArbitrumGoerliChain.chainId,
+    readOnlyUrls: {
+      [ArbitrumGoerliChain.chainId]: "https://soft-muddy-fire.arbitrum-goerli.quiknode.pro/52f6f81b9b0ff29b6e5bd53967f1f5138650e2fb",
+    },
   }
-  /*
-
-  */
-  /*
- 
-
-      <Web3ReactProvider connectors={connectors}>
-
-  */
-
-  /*
-  function getLibrary(provider) {
-    return new Web3(provider)
-  }
-  */
 
   return (
-    <Web3ReactProvider getLibrary={getLibrary}>
+    <DAppProvider config={config}>
 
 
       <Provider store={store}>
@@ -66,7 +60,7 @@ function MyApp({ Component, pageProps }) {
         </Head>
         <Component {...pageProps} />
       </Provider>
-    </Web3ReactProvider>
+    </DAppProvider>
 
   );
 }

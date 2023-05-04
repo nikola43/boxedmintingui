@@ -1,31 +1,25 @@
+import { useEthers } from '@usedapp/core';
 import Link from "next/link";
 import { useEffect } from "react";
 import { connect } from "react-redux";
 import { navigationToggle, walletToggle } from "../redux/actions/siteSettings";
 import { stickyNav } from "../utilits";
-import { useWeb3React } from "@web3-react/core";
-import { injected, swithNetwork } from "../blockchain/metamaskConnector";
-import ChainParams from "../blockchain/chainParams";
+
 
 const Header = ({ walletToggle, navigationToggle }) => {
+
+  const { account, deactivate, activateBrowserWallet } = useEthers()
+
+
   useEffect(() => {
     stickyNav();
   }, []);
 
-  const selectedChainId = 421613;
-  const { active, account, library, activate, deactivate, chainId } =
-    useWeb3React();
 
-  useEffect(() => {
-    swithNetwork(ChainParams[0]);
 
-    /*
-    if (active && chainId !== selectedChainId) {
-      swithNetwork(ChainParams[0]);
-    }
-    */
-  }, [chainId]);
 
+
+  /*
   useEffect(() => {
     const isWalletConnected = localStorage.getItem("isWalletConnected");
     const connector = localStorage.getItem("connector");
@@ -33,16 +27,9 @@ const Header = ({ walletToggle, navigationToggle }) => {
       activate(injected);
     }
   }, [active]);
+  */
 
-  async function connectMetamaks() {
-    try {
-      await activate(injected, undefined, true);
-      localStorage.setItem("connector", "injected");
-      localStorage.setItem("isWalletConnected", "true");
-    } catch (ex) {
-      console.log(ex.code);
-    }
-  }
+
 
   function getWalletAbreviation(
     walletAddress
@@ -53,15 +40,7 @@ const Header = ({ walletToggle, navigationToggle }) => {
     return "";
   }
 
-  async function disconnectMetamaks() {
-    try {
-      deactivate();
-      localStorage.setItem("isWalletConnected", "false");
-      localStorage.removeItem("connector");
-    } catch (ex) {
-      console.log(ex);
-    }
-  }
+
 
   return (
     <header id="header">
@@ -96,13 +75,13 @@ const Header = ({ walletToggle, navigationToggle }) => {
             </ul>
           </div>
           <div className="wallet">
-            {active ? (
-              <a className="metaportal_fn_button wallet_opener" onClick={disconnectMetamaks}>
+            {account ? (
+              <a className="metaportal_fn_button wallet_opener" onClick={deactivate}>
                 <span>{getWalletAbreviation(account)}</span>
               </a>
             ) : (
 
-              <a className="metaportal_fn_button wallet_opener" onClick={connectMetamaks}>
+              <a className="metaportal_fn_button wallet_opener" onClick={activateBrowserWallet}>
                 <span>Connect Wallet</span>
               </a>
             )}

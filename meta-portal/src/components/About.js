@@ -5,14 +5,19 @@ import { useEffect, useState } from "react";
 import nftMintContractAbi from "../blockchain/abi/NftMint.json";
 import usdtAbi from "../blockchain/abi/Token.json";
 import toast, { Toaster } from "react-hot-toast";
+import { Contract } from '@ethersproject/contracts'
+import { useEthers } from '@usedapp/core';
+import { useContractFunction, useTokenAllowance } from "@usedapp/core";
+
 
 const NftMintAddress = "0x3cb33c80875A024903D2b82e480E71b6Bb92BF2e";
 const USDTAddress = "0x43B552A6A5B97f120788A8751547D5D953eFBBcA";
 
 const About = () => {
 
-  const { active, account, library, activate, deactivate, chainId } =
-    useWeb3React();
+
+  const { account, deactivate, activateBrowserWallet } = useEthers()
+
 
   const [isMintingOneLoading, setIsMintingOneLoading] = useState(false);
   const [isApproveLoading, setIsApproveLoading] = useState(false);
@@ -26,40 +31,36 @@ const About = () => {
   let nftMintContract;
   let usdtContract;
 
-  if (library) {
-    console.log(library.provider)
 
-    nftMintContract = new library.eth.Contract(
-      nftMintContractAbi,
-      NftMintAddress
-    );
 
-    usdtContract = new library.eth.Contract(usdtAbi, USDTAddress);
+  nftMintContract = new Contract(NftMintAddress, nftMintContractAbi)
+  usdtContract = new Contract(USDTAddress, usdtAbi);
+
+  const { state, send } = useContractFunction(usdtContract, "approve", { transactionName: "Approve" });
+
+  if (account) {
+    const allow = useTokenAllowance(USDTAddress, account, NftMintAddress);
   }
 
+  
 
 
-  async function connectMetamaks() {
-    try {
-      await activate(injected, undefined, true);
-      localStorage.setItem("connector", "injected");
-      localStorage.setItem("isWalletConnected", "true");
-    } catch (ex) {
-      console.log(ex.code);
-    }
-  }
-
-  /*
   useEffect(() => {
     if (account) {
-      getUSDTAllowance().then(() => { });
+      setAllowance(allow);
+
+
+
+
+      /*getUSDTAllowance().then(() => { });
       getCost().then(() => { });
       getTotalSupply().then(() => { });
       getMaxSupply().then(() => { });
       getUsdtBalance().then(() => { });
+      */
     }
   }, [account]);
-  */
+
 
   async function getUSDTAllowance() {
     const allowance = await usdtContract.methods
@@ -250,7 +251,7 @@ const About = () => {
               </p>
             </div>
 
-            {active ? (
+            {account ? (
               allowance === "0" ? (
                 <a className="metaportal_fn_button wallet_opener" onClick={approveUSDT}>
                   <span>Approve</span>
@@ -263,7 +264,7 @@ const About = () => {
                 </a>
               )
             ) : (
-              <a className="metaportal_fn_button wallet_opener" onClick={connectMetamaks}>
+              <a className="metaportal_fn_button wallet_opener" onClick={activateBrowserWallet}>
                 <span>Connect Wallet</span>
               </a>
             )}
