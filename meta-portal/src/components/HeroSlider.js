@@ -130,6 +130,13 @@ const HeroSlider = () => {
         >
           Boxed
         </h3>
+        <h5
+          className="fn__maintitle big"
+          data-text="Beta"
+          data-align="center"
+        >
+          Beta
+        </h5>
         {/* Slider */}
         <div className="fn_cs_slider" data-responsive="on">
           <div className="slider_top">

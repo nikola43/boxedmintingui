@@ -8,11 +8,13 @@ import { stickyNav } from "../utilits";
 
 const Header = ({ walletToggle, navigationToggle }) => {
 
-  const { account, deactivate, activateBrowserWallet } = useEthers()
+  const { account, deactivate, activateBrowserWallet, switchNetwork, chainId } = useEthers()
 
 
   useEffect(() => {
     stickyNav();
+
+
   }, []);
 
 
@@ -91,7 +93,19 @@ const Header = ({ walletToggle, navigationToggle }) => {
               </a>
             ) : (
 
-              <a className="metaportal_fn_button wallet_opener" onClick={activateBrowserWallet}>
+              <a className="metaportal_fn_button wallet_opener" onClick={async () => {
+                if (chainId !== 42161) {
+                  await switchNetwork(42161).then(() => {
+                    console.log("switched to Arbitrum ");
+
+                  });
+                  activateBrowserWallet();
+                } else if (chainId === 42161) {
+                  activateBrowserWallet();
+                } else {
+                  console.log("something went wrong");
+                }
+              }}>
                 <span>Connect Wallet</span>
               </a>
             )}

@@ -23,12 +23,30 @@ export const ArbitrumGoerliChain = {
   }
 }
 
+export const ArbitrumOneChain = {
+  chainId: 42161,
+  chainName: 'Arbitrum One',
+  isTestChain: false,
+  isLocalChain: false,
+  multicallAddress: '0x0000000000000000000000000000000000000000',
+  getExplorerAddressLink: (address) => `https://arbiscan.io/address/${address}`,
+  getExplorerTransactionLink: (transactionHash) => `https://arbiscan.io/tx/${transactionHash}`,
+  // Optional parameters:
+  rpcUrl: 'https://arb1.arbitrum.io/rpc',
+  blockExplorerUrl: 'https://arbiscan.io',
+  nativeCurrency: {
+    name: 'Ether',
+    symbol: 'ETH',
+    decimals: 18,
+  }
+}
+
 function MyApp({ Component, pageProps }) {
 
   const config = {
-    readOnlyChainId: ArbitrumGoerliChain.chainId,
+    readOnlyChainId: ArbitrumOneChain.chainId,
     readOnlyUrls: {
-      [ArbitrumGoerliChain.chainId]: "https://soft-muddy-fire.arbitrum-goerli.quiknode.pro/52f6f81b9b0ff29b6e5bd53967f1f5138650e2fb",
+      [ArbitrumOneChain.chainId]: ArbitrumOneChain.rpcUrl
     },
   }
 

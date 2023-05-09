@@ -9,8 +9,8 @@ import useTotalSupply from "../hooks/useTotalSupply";
 import { formatEther } from 'ethers/lib/utils';
 
 
-const NftMintAddress = "0x063c6a32af4c9BD25F3832f86551f3823350aB8E";
-const USDTAddress = "0x43B552A6A5B97f120788A8751547D5D953eFBBcA";
+const NftMintAddress = "0x93Feaf8C59b3A3eD38b7aE98783a745399D79717";
+const USDTAddress = "0xFd086bC7CD5C481DCC9C85ebE478A1C0b69FCbb9";
 
 
 const About = () => {
