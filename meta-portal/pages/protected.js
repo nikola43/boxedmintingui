@@ -2,7 +2,7 @@ import Layout from "../src/layout/Layout";
 const Protected = () => {
   return (
     <Layout pageTitle={"Protected"}>
-      <div className="metaportal_fn_protected">
+      <div className="BoxCapital_fn_protected">
         <div className="container">
           <div className="message_holder">
             <span className="icon">

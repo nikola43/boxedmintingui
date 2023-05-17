@@ -88,12 +88,12 @@ const Header = ({ walletToggle, navigationToggle }) => {
           </div>
           <div className="wallet">
             {account ? (
-              <a className="metaportal_fn_button wallet_opener" onClick={deactivate}>
+              <a className="BoxCapital_fn_button wallet_opener" onClick={deactivate}>
                 <span>{getWalletAbreviation(account)}</span>
               </a>
             ) : (
 
-              <a className="metaportal_fn_button wallet_opener" onClick={async () => {
+              <a className="BoxCapital_fn_button wallet_opener" onClick={async () => {
                 if (chainId !== 42161) {
                   await switchNetwork(42161).then(() => {
                     console.log("switched to Arbitrum ");

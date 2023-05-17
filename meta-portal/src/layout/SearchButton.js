@@ -4,7 +4,7 @@ const SearchButton = ({ searchToggle }) => {
   return (
     <a
       href="#"
-      className="metaportal_fn_search hold"
+      className="BoxCapital_fn_search hold"
       onClick={(e) => {
         e.preventDefault();
         searchToggle(true);

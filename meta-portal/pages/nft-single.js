@@ -3,10 +3,10 @@ import Layout from "../src/layout/Layout";
 const NftSingle = () => {
   return (
     <Layout pageTitle={"Minting"}>
-      <div className="metaportal_fn_mintpage">
+      <div className="BoxCapital_fn_mintpage">
         <div className="container small">
           {/* Mint Top */}
-          <div className="metaportal_fn_mint_top">
+          <div className="BoxCapital_fn_mint_top">
             <div className="mint_left">
               <div className="img">
                 <div className="img_in" data-bg-img="/img/about/1.jpg">
@@ -15,7 +15,7 @@ const NftSingle = () => {
               </div>
             </div>
             <div className="mint_right">
-              <div className="metaportal_fn_share">
+              <div className="BoxCapital_fn_share">
                 <h5 className="label">Share:</h5>
                 <ul>
                   <li>
@@ -65,7 +65,7 @@ const NftSingle = () => {
                   </li>
                 </ul>
               </div>
-              <div className="metaportal_fn_breadcrumbs">
+              <div className="BoxCapital_fn_breadcrumbs">
                 <p>
                   <Link href="/">
                     <a>Home</a>
@@ -125,7 +125,7 @@ const NftSingle = () => {
           </div>
           {/* !Mint Top */}
           {/* Mint Box */}
-          <div className="metaportal_fn_mintbox">
+          <div className="BoxCapital_fn_mintbox">
             <div className="mint_left">
               <div className="mint_title">
                 <span>Public Mint is Live</span>
@@ -171,7 +171,7 @@ const NftSingle = () => {
                   href="#"
                   target="_blank"
                   rel="noreferrer"
-                  className="metaportal_fn_button"
+                  className="BoxCapital_fn_button"
                 >
                   <span>Mint Now</span>
                 </a>
@@ -202,7 +202,7 @@ const NftSingle = () => {
 											It will mean that the time expires after this time, but when the page is refreshed, the value will return again. It means, it won't end.
 								*/}
                   <h3
-                    className="metaportal_fn_countdown"
+                    className="BoxCapital_fn_countdown"
                     data-type="ever"
                     data-date="October 13, 2022 12:30:00"
                     data-days={34}
@@ -252,7 +252,7 @@ const NftSingle = () => {
           </div>
           {/* !Mint Box */}
           {/* NFT Categories */}
-          <div className="metaportal_fn_nft_cats">
+          <div className="BoxCapital_fn_nft_cats">
             <ul>
               <li>
                 <div className="item">
@@ -322,7 +322,7 @@ const NftSingle = () => {
           </div>
           {/* !NFT Categories */}
           {/* Similar Items */}
-          <div className="metaportal_fn_similar">
+          <div className="BoxCapital_fn_similar">
             <h3 className="fn__maintitle" data-text="Similar Items">
               Similar Items
             </h3>
@@ -332,7 +332,7 @@ const NftSingle = () => {
                 <span />
               </div>
             </div>
-            <div className="metaportal_fn_drops">
+            <div className="BoxCapital_fn_drops">
               <ul className="grid">
                 <li>
                   <div className="nft__item">

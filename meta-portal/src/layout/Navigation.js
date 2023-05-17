@@ -8,9 +8,9 @@ const Navigation = ({ navigation, navigationToggle }) => {
     <Fragment>
       <div
         onClick={() => navigationToggle(false)}
-        className={`metaportal_fn_leftnav_closer ${navigation ? "active" : ""}`}
+        className={`BoxCapital_fn_leftnav_closer ${navigation ? "active" : ""}`}
       />
-      <div className={`metaportal_fn_leftnav ${navigation ? "active" : ""}`}>
+      <div className={`BoxCapital_fn_leftnav ${navigation ? "active" : ""}`}>
         <a
           href="#"
           className="fn__closer"
@@ -20,7 +20,7 @@ const Navigation = ({ navigation, navigationToggle }) => {
         </a>
         <div className="navbox">
           <div className="list_holder">
-            <ul className="metaportal_fn_items">
+            <ul className="BoxCapital_fn_items">
               <li>
                 <div className="item">
                   <a

@@ -3,9 +3,9 @@ import Layout from "../src/layout/Layout";
 const BlogSingle = () => {
   return (
     <Layout pageTitle={"Blog Single"}>
-      <div className="metaportal_fn_blog_single">
+      <div className="BoxCapital_fn_blog_single">
         <div className="container small">
-          <div className="metaportal_fn_share">
+          <div className="BoxCapital_fn_share">
             <h5 className="label">Share:</h5>
             <ul>
               <li>
@@ -55,7 +55,7 @@ const BlogSingle = () => {
               </li>
             </ul>
           </div>
-          <div className="metaportal_fn_breadcrumbs">
+          <div className="BoxCapital_fn_breadcrumbs">
             <p>
               <Link href="/">
                 <a>Home</a>
@@ -66,14 +66,14 @@ const BlogSingle = () => {
               </Link>
               <span className="separator">/</span>
               <span className="current">
-                MetaPortal’s NFT Goes Public in Nod to Crypto Adoption
+                BoxCapital’s NFT Goes Public in Nod to Crypto Adoption
               </span>
             </p>
           </div>
           <div className="single_img">
             <img src="/img/blog/single.jpg" alt="" />
           </div>
-          <div className="metaportal_fn_minis">
+          <div className="BoxCapital_fn_minis">
             <div className="m_item">
               <a href="#">June 01, 2022</a>
             </div>
@@ -87,17 +87,17 @@ const BlogSingle = () => {
             </div>
           </div>
           {/* Sidebar */}
-          <div className="metaportal_fn_wsidebar">
+          <div className="BoxCapital_fn_wsidebar">
             {/* Left Sidebar */}
             <div className="sidebar_left">
               {/* Single Title */}
               <div className="single_title">
                 <h3
                   className="fn__maintitle"
-                  data-text="MetaPortal’s NFT Goes Public In Nod To Crypto Adoption"
+                  data-text="BoxCapital’s NFT Goes Public In Nod To Crypto Adoption"
                   data-align="left"
                 >
-                  MetaPortal’s NFT Goes Public In Nod To Crypto Adoption
+                  BoxCapital’s NFT Goes Public In Nod To Crypto Adoption
                 </h3>
                 <div className="categories">
                   <a href="#">Tokens</a>, <a href="#">NFTs</a>,{" "}
@@ -166,7 +166,7 @@ const BlogSingle = () => {
               </div>
               {/* !Single Description */}
               {/* Author Information Box */}
-              <div className="metaportal_fn_author_info">
+              <div className="BoxCapital_fn_author_info">
                 <div className="info_img">
                   <img src="/img/blog/author.jpg" alt="" />
                 </div>
@@ -227,7 +227,7 @@ const BlogSingle = () => {
               </div>
               {/* !Author Information Box */}
               {/* Tags */}
-              <div className="metaportal_fn_tags">
+              <div className="BoxCapital_fn_tags">
                 <h4 className="label">Tags:</h4>
                 <a href="#">Tokens</a>
                 <span>,</span>
@@ -248,7 +248,7 @@ const BlogSingle = () => {
                   <span className="text">Top Articles</span>
                   <span className="icon" />
                 </div>
-                <div className="metaportal_fn_widget_articles">
+                <div className="BoxCapital_fn_widget_articles">
                   <ul>
                     <li>
                       <div className="item">
@@ -301,7 +301,7 @@ const BlogSingle = () => {
                   <span className="icon" />
                 </div>
                 <div
-                  className="metaportal_fn_categories"
+                  className="BoxCapital_fn_categories"
                   data-more="Show More"
                   data-less="Show Less"
                   data-count={4}
@@ -366,7 +366,7 @@ const BlogSingle = () => {
                   <span className="text">Subscribe &amp; Follow</span>
                   <span className="icon" />
                 </div>
-                <div className="metaportal_fn_widget_social">
+                <div className="BoxCapital_fn_widget_social">
                   <ul>
                     <li>
                       <a href="#">
@@ -423,7 +423,7 @@ const BlogSingle = () => {
           {/* !Sidebar */}
         </div>
         {/* Previous & Next Box */}
-        <div className="metaportal_fn_pnb">
+        <div className="BoxCapital_fn_pnb">
           <div className="container small">
             <div className="pnb_wrapper">
               <div className="prev item">
@@ -479,7 +479,7 @@ const BlogSingle = () => {
         {/* !Previous & Next Box */}
         {/* Comments */}
         <div className="container small">
-          <div className="metaportal_fn_comments">
+          <div className="BoxCapital_fn_comments">
             <div className="comment-title">
               <h3 className="fn_title">3 Comments</h3>
             </div>
@@ -639,7 +639,7 @@ const BlogSingle = () => {
                   </li>
                 </ul>
                 <div className="clearfix" />
-                <a href="#" className="metaportal_fn_button full">
+                <a href="#" className="BoxCapital_fn_button full">
                   <span>Post Comment</span>
                 </a>
               </form>

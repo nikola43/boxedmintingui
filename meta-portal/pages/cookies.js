@@ -5,7 +5,7 @@ const Cookies = () => {
     <Layout pageTitle={"Cookies"}>
       <PageBanner pageName={"Cookies"} />
 
-      <div className="metaportal_fn_privacy">
+      <div className="BoxCapital_fn_privacy">
         <div className="container small">
           <h3 className="fn__maintitle" data-text="What is a Cookies Policy?">
             What is a Cookies Policy?

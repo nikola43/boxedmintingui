@@ -226,7 +226,7 @@ const HeroSlider = () => {
           {/*
               <a
                 href="https://opensea.io/"
-                className="metaportal_fn_button"
+                className="BoxCapital_fn_button"
                 target="_blank"
                 rel="noreferrer"
               >

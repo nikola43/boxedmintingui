@@ -117,7 +117,7 @@ const News = () => {
           <div className="bottom_part">
             <div className="left_bot">
               <Link href="/blog">
-                <a className="metaportal_fn_button full">
+                <a className="BoxCapital_fn_button full">
                   <span>Read All Articles</span>
                 </a>
               </Link>

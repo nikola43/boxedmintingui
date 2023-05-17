@@ -23,7 +23,7 @@ const Layout = ({ children, pageTitle }) => {
   return (
     <Fragment>
       <Head>
-        <title>MetaPortal | {pageTitle}</title>
+        <title>BoxCapital | {pageTitle}</title>
       </Head>
       <ImageView />
       <VideoPopup />
@@ -39,7 +39,7 @@ const Layout = ({ children, pageTitle }) => {
       <WalletPopUp />
       {/* !Wallet Popup */}
       {/* Main */}
-      <div className="metaportal_fn_main">
+      <div className="BoxCapital_fn_main">
         {/* Mobile Navigation */}
         <MobileNavigation />
         {/* !Mobile Navigation */}
@@ -47,7 +47,7 @@ const Layout = ({ children, pageTitle }) => {
         <Header />
         {/* !Header */}
         {/* Content */}
-        <div className="metaportal_fn_content">
+        <div className="BoxCapital_fn_content">
           {children}
           {/* Footer */}
           <Footer />

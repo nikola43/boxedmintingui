@@ -22,16 +22,16 @@ const MobileNavigation = ({ walletToggle, navigationToggle }) => {
 
   return (
     <Fragment>
-      <div className="metaportal_fn_mobnav">
+      <div className="BoxCapital_fn_mobnav">
         <div className="mob_top">
           <div className="wallet">
             {account ? (
-              <a className="metaportal_fn_button wallet_opener" onClick={deactivate}>
+              <a className="BoxCapital_fn_button wallet_opener" onClick={deactivate}>
                 <span>{getWalletAbreviation(account)}</span>
               </a>
             ) : (
 
-              <a className="metaportal_fn_button wallet_opener" onClick={activateBrowserWallet}>
+              <a className="BoxCapital_fn_button wallet_opener" onClick={activateBrowserWallet}>
                 <span>Connect Wallet</span>
               </a>
             )}

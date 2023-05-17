@@ -169,7 +169,7 @@ const About = () => {
             </div>
             <a
               href="https://t.me/+U6FHko4dC5g4YzA0"
-              className="metaportal_fn_button"
+              className="BoxCapital_fn_button"
               target="_blank"
               rel="noreferrer"
             >
@@ -206,6 +206,7 @@ const About = () => {
                 </p>
               </div>
 
+              <p>Cost: 250 USDT</p>
               <p>Minted {totalSupply} / 160</p>
 
               <input value={amount} style={{ marginBottom: '20px' }} id="name" type="text" placeholder="Amount" onChange={handleChange} />
@@ -213,18 +214,18 @@ const About = () => {
 
               {account ? (
                 allowance == "0" ? (
-                  <a className="metaportal_fn_button wallet_opener" onClick={approveUSDT}>
+                  <a className="BoxCapital_fn_button wallet_opener" onClick={approveUSDT}>
                     <span>Approve</span>
                   </a>
                 ) : (
-                  <a className="metaportal_fn_button wallet_opener" onClick={() => {
+                  <a className="BoxCapital_fn_button wallet_opener" onClick={() => {
                     mintNFTs(amount).then(() => { });
                   }}>
                     <span>Mint</span>
                   </a>
                 )
               ) : (
-                <a className="metaportal_fn_button wallet_opener" onClick={activateBrowserWallet}>
+                <a className="BoxCapital_fn_button wallet_opener" onClick={activateBrowserWallet}>
                   <span>Connect Wallet</span>
                 </a>
               )}
@@ -361,7 +362,7 @@ export const About2 = () => (
           </div>
           <a
             href="https://discord.com/"
-            className="metaportal_fn_button"
+            className="BoxCapital_fn_button"
             target="_blank"
             rel="noreferrer"
           >
@@ -450,7 +451,7 @@ export const About2 = () => (
           <div className="buttons">
             <a
               href="https://opensea.io/"
-              className="metaportal_fn_button"
+              className="BoxCapital_fn_button"
               target="_blank"
               rel="noreferrer"
             >
@@ -458,7 +459,7 @@ export const About2 = () => (
             </a>
             <a
               href="#"
-              className="metaportal_fn_button"
+              className="BoxCapital_fn_button"
               target="_blank"
               rel="noreferrer"
             >

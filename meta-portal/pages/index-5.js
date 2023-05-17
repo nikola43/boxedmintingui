@@ -32,7 +32,7 @@ const Index5 = () => {
             </p>
             <a
               href="https://opensea.io/"
-              className="metaportal_fn_button"
+              className="BoxCapital_fn_button"
               target="_blank"
               rel="noreferrer"
             >
@@ -76,7 +76,7 @@ const Index5 = () => {
                       />
                       <img src="/img/1x1.jpg" alt="" />
                       <a
-                        className="popup-youtube metaportal_fn_videobutton"
+                        className="popup-youtube BoxCapital_fn_videobutton"
                         href="https://www.youtube.com/embed/7e90gBu4pas"
                       >
                         <img src="/svg/play.svg" alt="" className="fn__svg" />

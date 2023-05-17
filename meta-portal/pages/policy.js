@@ -4,7 +4,7 @@ const Policy = () => {
   return (
     <Layout pageTitle={"Privacy Policy"}>
       <PageBanner pageName={"Privacy Policy"} />
-      <div className="metaportal_fn_privacy">
+      <div className="BoxCapital_fn_privacy">
         <div className="container small">
           <h3 className="fn__maintitle" data-text="Who we are">
             Who we are

@@ -1,6 +1,6 @@
 const PreLoader = () => {
   return (
-    <div className="metaportal_fn_preloader">
+    <div className="BoxCapital_fn_preloader">
       <div className="loading-container">
         <div className="loading">
           <div className="l1">

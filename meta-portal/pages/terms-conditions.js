@@ -5,7 +5,7 @@ const TermsConditions = () => {
     <Layout pageTitle={"Terms & Conditions"}>
       <PageBanner pageName={"Terms & Conditions"} />
 
-      <div className="metaportal_fn_privacy">
+      <div className="BoxCapital_fn_privacy">
         <div className="container small">
           <h3
             className="fn__maintitle"

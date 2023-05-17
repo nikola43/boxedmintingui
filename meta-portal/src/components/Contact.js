@@ -100,7 +100,7 @@ const Contact = () => {
                     <a
                       id="send_message"
                       href="#"
-                      className="metaportal_fn_button full"
+                      className="BoxCapital_fn_button full"
                     >
                       <span>Send Message</span>
                     </a>

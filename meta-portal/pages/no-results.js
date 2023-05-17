@@ -2,7 +2,7 @@ import Layout from "../src/layout/Layout";
 const NoResults = () => {
   return (
     <Layout pageTitle={"No Result"}>
-      <div className="metaportal_fn_404">
+      <div className="BoxCapital_fn_404">
         <div className="container small">
           <div className="message_holder">
             <span className="icon">
@@ -22,7 +22,7 @@ const NoResults = () => {
             <div className="container-custom">
               <form>
                 <input name="s" type="text" placeholder="Search here..." />
-                <a href="#" className="metaportal_fn_button">
+                <a href="#" className="BoxCapital_fn_button">
                   <img src="/svg/loupe.svg" alt="" className="fn__svg" />
                 </a>
               </form>

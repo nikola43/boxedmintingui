@@ -6,7 +6,7 @@ const Blog = () => {
     <Layout pageTitle={"Blog"}>
       <PageBanner pageName={"Blog Articles"} />
 
-      <div className="metaportal_fn_bloglist">
+      <div className="BoxCapital_fn_bloglist">
         <div className="container small">
           <div className="bloglist">
             <ul className="fn-isotope">
@@ -147,7 +147,7 @@ const Blog = () => {
               </li>
             </ul>
           </div>
-          <div className="metaportal_fn_pagination">
+          <div className="BoxCapital_fn_pagination">
             <ul>
               <li>
                 <span>1</span>

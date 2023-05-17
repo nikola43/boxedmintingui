@@ -5,10 +5,10 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
   return (
     <Fragment>
       <div
-        className={`metaportal_fn_wallet_closer ${wallet ? "active" : ""}`}
+        className={`BoxCapital_fn_wallet_closer ${wallet ? "active" : ""}`}
         onClick={() => walletToggle(false)}
       />
-      <div className={`metaportal_fn_walletbox ${wallet ? "active" : ""}`}>
+      <div className={`BoxCapital_fn_walletbox ${wallet ? "active" : ""}`}>
         <a href="#" className="fn__closer" onClick={() => walletToggle(false)}>
           <span />
         </a>
@@ -21,7 +21,7 @@ const WalletPopUp = ({ walletToggle, wallet }) => {
             </p>
           </div>
           <div className="list_holder">
-            <ul className="metaportal_fn_items">
+            <ul className="BoxCapital_fn_items">
               <li>
                 <div className="item">
                   <a href="#" />

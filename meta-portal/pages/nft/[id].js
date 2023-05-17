@@ -37,10 +37,10 @@ const Nft = ({ getSingleNft, nft, getNfts, nfts }) => {
 
   return (
     <Layout pageTitle={"Minting"}>
-      <div className="metaportal_fn_mintpage">
+      <div className="BoxCapital_fn_mintpage">
         <div className="container small">
           {/* Mint Top */}
-          <div className="metaportal_fn_mint_top">
+          <div className="BoxCapital_fn_mint_top">
             <div className="mint_left">
               <div className="img">
                 <div
@@ -52,7 +52,7 @@ const Nft = ({ getSingleNft, nft, getNfts, nfts }) => {
               </div>
             </div>
             <div className="mint_right">
-              <div className="metaportal_fn_share">
+              <div className="BoxCapital_fn_share">
                 <h5 className="label">Share:</h5>
                 <ul>
                   <li>
@@ -102,7 +102,7 @@ const Nft = ({ getSingleNft, nft, getNfts, nfts }) => {
                   </li>
                 </ul>
               </div>
-              <div className="metaportal_fn_breadcrumbs">
+              <div className="BoxCapital_fn_breadcrumbs">
                 <p>
                   <Link href="/">
                     <a>Home</a>
@@ -162,7 +162,7 @@ const Nft = ({ getSingleNft, nft, getNfts, nfts }) => {
           </div>
           {/* !Mint Top */}
           {/* Mint Box */}
-          <div className="metaportal_fn_mintbox">
+          <div className="BoxCapital_fn_mintbox">
             <div className="mint_left">
               <div className="mint_title">
                 <span>Public Mint is Live</span>
@@ -225,7 +225,7 @@ const Nft = ({ getSingleNft, nft, getNfts, nfts }) => {
                   href="#"
                   target="_blank"
                   rel="noreferrer"
-                  className="metaportal_fn_button"
+                  className="BoxCapital_fn_button"
                 >
                   <span>Mint Now</span>
                 </a>
@@ -256,7 +256,7 @@ const Nft = ({ getSingleNft, nft, getNfts, nfts }) => {
         It will mean that the time expires after this time, but when the page is refreshed, the value will return again. It means, it won't end.
      */}
                   <h3
-                    className="metaportal_fn_countdown"
+                    className="BoxCapital_fn_countdown"
                     data-type="ever"
                     data-date="October 13, 2022 12:30:00"
                     data-days={34}
@@ -306,7 +306,7 @@ const Nft = ({ getSingleNft, nft, getNfts, nfts }) => {
           </div>
           {/* !Mint Box */}
           {/* NFT Categories */}
-          <div className="metaportal_fn_nft_cats">
+          <div className="BoxCapital_fn_nft_cats">
             <ul>
               <li>
                 <div className="item">
@@ -376,7 +376,7 @@ const Nft = ({ getSingleNft, nft, getNfts, nfts }) => {
           </div>
           {/* !NFT Categories */}
           {/* Similar Items */}
-          <div className="metaportal_fn_similar">
+          <div className="BoxCapital_fn_similar">
             <h3 className="fn__maintitle" data-text="Similar Items">
               Similar Items
             </h3>
@@ -386,7 +386,7 @@ const Nft = ({ getSingleNft, nft, getNfts, nfts }) => {
                 <span />
               </div>
             </div>
-            <div className="metaportal_fn_drops">
+            <div className="BoxCapital_fn_drops">
               <ul className="grid">
                 {nfts &&
                   similarItem.map(

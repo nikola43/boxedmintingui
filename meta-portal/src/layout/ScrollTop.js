@@ -7,7 +7,7 @@ const ScrollTop = () => {
   }, []);
 
   return (
-    <a href="#" className="metaportal_fn_totop" style={{ height: "183px" }}>
+    <a href="#" className="BoxCapital_fn_totop" style={{ height: "183px" }}>
       <span className="totop_inner">
         <span className="icon">
           <img src="/svg/down.svg" alt="" className="fn__svg" />

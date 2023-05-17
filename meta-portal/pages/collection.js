@@ -16,19 +16,19 @@ const Collection = ({ getNfts, nfts }) => {
       <PageBanner pageName={"Collection"} />
 
       {/* Collection Page */}
-      <div className="metaportal_fn_collectionpage">
+      <div className="BoxCapital_fn_collectionpage">
         <div className="container">
-          <div className="metaportal_fn_collection">
+          <div className="BoxCapital_fn_collection">
             {/* Filters */}
 
             {/* !Filters */}
-            <div className="metaportal_fn_clist">
+            <div className="BoxCapital_fn_clist">
               {/* Result Box */}
 
               {/* !Result Box */}
               {/* Result List */}
-              <div className="metaportal_fn_result_list">
-                <div className="metaportal_fn_drops">
+              <div className="BoxCapital_fn_result_list">
+                <div className="BoxCapital_fn_drops">
                   <ul className="grid">
                     {nfts &&
                       nfts.map((nft, i) => (

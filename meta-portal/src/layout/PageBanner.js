@@ -4,7 +4,7 @@ import { Fragment } from "react";
 const PageBanner = ({ pageName }) => {
   return (
     <Fragment>
-      <div className="metaportal_fn_pagetitle">
+      <div className="BoxCapital_fn_pagetitle">
         <div className="container small">
           <div className="pagetitle">
             <h3

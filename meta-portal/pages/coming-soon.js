@@ -2,7 +2,7 @@ import Layout from "../src/layout/Layout";
 const ComingSoon = () => {
   return (
     <Layout pageTitle={"Coming Soon"}>
-      <div className="metaportal_fn_coming_soon">
+      <div className="BoxCapital_fn_coming_soon">
         <div className="container">
           <div className="soon_countdown">
             {/* 
@@ -22,7 +22,7 @@ const ComingSoon = () => {
 						Add boxed class to get #1 type of countdown
 					*/}
             <h3
-              className="metaportal_fn_countdown boxed"
+              className="BoxCapital_fn_countdown boxed"
               data-type="ever"
               data-date="October 13, 2022 12:30:00"
               data-days={34}
